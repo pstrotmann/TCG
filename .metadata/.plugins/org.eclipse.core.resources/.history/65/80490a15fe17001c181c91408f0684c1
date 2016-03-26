@@ -1,0 +1,202 @@
+package org.strotmann.tcg;
+
+import java.util.Date;
+
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
+
+public class Mitglied {
+	
+	private long mitgliedId;
+	
+	private String zuname;
+	private String vorname;
+	private long geschlecht; 
+	private Date geburtsdatum;
+	private Date eintrittsdatum;
+	private Date austrittsdatum;
+	private char status;
+	private int amt;
+	private int zahlungsart;
+	private int beitragsklasse;
+	private long bankleitzahl;
+	private long kontonummer;
+	private String kontoinhaber;
+	private String festnetz;
+	private String handy;
+	private String email;
+	private String strasse;
+	private int hausnummer;
+	private String hausnummerZus;
+	private int postleitzahl;
+	private String ort;
+	private char kzA;
+	private char kzB;
+	private char kzC;
+	
+	public String storeAction() {
+        
+        MitgliedPersister mitgliedPersister = new MitgliedPersisterDB4O();
+        mitgliedPersister.create(this);
+        
+        return "Erfolg";
+    }
+	
+	public int getAmt() {
+		return amt;
+	}
+	public void setAmt(int amt) {
+		this.amt = amt;
+	}
+	public Date getAustrittsdatum() {
+		return austrittsdatum;
+	}
+	public void setAustrittsdatum(Date austrittsdatum) {
+		this.austrittsdatum = austrittsdatum;
+	}
+	public long getBankleitzahl() {
+		return bankleitzahl;
+	}
+	public void setBankleitzahl(long bankleitzahl) {
+		this.bankleitzahl = bankleitzahl;
+	}
+	public int getBeitragsklasse() {
+		return beitragsklasse;
+	}
+	public void setBeitragsklasse(int beitragsklasse) {
+		this.beitragsklasse = beitragsklasse;
+	}
+	public Date getEintrittsdatum() {
+		return eintrittsdatum;
+	}
+	public void setEintrittsdatum(Date eintrittsdatum) {
+		this.eintrittsdatum = eintrittsdatum;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getFestnetz() {
+		return festnetz;
+	}
+	public void setFestnetz(String festnetz) {
+		this.festnetz = festnetz;
+	}
+	public Date getGeburtsdatum() {
+		return geburtsdatum;
+	}
+	public void setGeburtsdatum(Date geburtsdatum) {
+		this.geburtsdatum = geburtsdatum;
+	}
+	public long getGeschlecht() {
+		return geschlecht;
+	}
+	public void setGeschlecht(long geschlecht) {
+		this.geschlecht = geschlecht;
+	}
+	public String getHandy() {
+		return handy;
+	}
+	public void setHandy(String handy) {
+		this.handy = handy;
+	}
+	public int getHausnummer() {
+		return hausnummer;
+	}
+	public void setHausnummer(int hausnummer) {
+		this.hausnummer = hausnummer;
+	}
+	public String getHausnummerZus() {
+		return hausnummerZus;
+	}
+	public void setHausnummerZus(String hausnummerZus) {
+		this.hausnummerZus = hausnummerZus;
+	}
+	public String getKontoinhaber() {
+		return kontoinhaber;
+	}
+	public void setKontoinhaber(String kontoinhaber) {
+		this.kontoinhaber = kontoinhaber;
+	}
+	public long getKontonummer() {
+		return kontonummer;
+	}
+	public void setKontonummer(long kontonummer) {
+		this.kontonummer = kontonummer;
+	}
+	public char getKzA() {
+		return kzA;
+	}
+	public void setKzA(char kzA) {
+		this.kzA = kzA;
+	}
+	public char getKzB() {
+		return kzB;
+	}
+	public void setKzB(char kzB) {
+		this.kzB = kzB;
+	}
+	public char getKzC() {
+		return kzC;
+	}
+	public void setKzC(char kzC) {
+		this.kzC = kzC;
+	}
+	public long getMitgliedId() {
+		HttpServletRequest request =
+		(HttpServletRequest) FacesContext
+		.getCurrentInstance()
+		.getExternalContext()
+		.getRequest();
+		String mId = request.getParameter("form1:mitgliedId");
+		return mitgliedId;
+	}
+	public void setMitgliedId(long mitgliedId) {
+		this.mitgliedId = mitgliedId;
+	}
+	public String getOrt() {
+		return ort;
+	}
+	public void setOrt(String ort) {
+		this.ort = ort;
+	}
+	public int getPostleitzahl() {
+		return postleitzahl;
+	}
+	public void setPostleitzahl(int postleitzahl) {
+		this.postleitzahl = postleitzahl;
+	}
+	public char getStatus() {
+		return status;
+	}
+	public void setStatus(char status) {
+		this.status = status;
+	}
+	public String getStrasse() {
+		return strasse;
+	}
+	public void setStrasse(String strasse) {
+		this.strasse = strasse;
+	}
+	public String getVorname() {
+		return vorname;
+	}
+	public void setVorname(String vorname) {
+		this.vorname = vorname;
+	}
+	public int getZahlungsart() {
+		return zahlungsart;
+	}
+	public void setZahlungsart(int zahlungsart) {
+		this.zahlungsart = zahlungsart;
+	}
+	public String getZuname() {
+		return zuname;
+	}
+	public void setZuname(String zuname) {
+		this.zuname = zuname;
+	}
+
+}

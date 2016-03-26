@@ -1,0 +1,79 @@
+<%@ page session="false" contentType="text/html;charset=utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
+<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
+<%@ taglib uri="http://myfaces.apache.org/sandbox" prefix="s"%>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=Cp1252"/>
+	<title>TCG</title>
+</head>
+
+<body>
+
+<f:view>
+
+	<h1 align="center">
+		<t:graphicImage value="/images/tcg-logo-mittel.jpg"></t:graphicImage>
+		<h:outputText value="Mitgliederverwaltung"/>				
+		<t:graphicImage value="/images/tcg-logo-mittel.jpg"></t:graphicImage>
+	</h1>
+
+    <h:form id="form1">
+		
+		<h2 align="center">
+			<h:outputText value="MailAnListe"/>
+   		</h2>
+		
+		<t:dataTable
+				 id="mitTab"
+				 rowIndexVar="ind"
+				 headerClass="standardTable_Header"
+				 var="mitglied"
+				 value="#{mgr.mailliste}"	
+				 border="3"
+				 bgcolor="white"
+				>
+								
+				<h:column>
+					<f:facet name="header">
+				     <h:outputText value="Vorname" />
+				    </f:facet>
+				   	<h:outputText value="#{mitglied.vorname}" />
+	            </h:column>
+	            
+	            <h:column>
+	            	<f:facet name="header">
+				     <h:outputText value="Zuname" />
+				    </f:facet>
+	                <h:outputText value="#{mitglied.zuname}" />
+	            </h:column>
+	            
+	            <h:column>
+	            	<f:facet name="header">
+				     <h:outputText value="eMail" />
+				    </f:facet>
+	                <h:outputText value="#{mitglied.email}" />
+	            </h:column>
+				
+		</t:dataTable>
+		
+		<h:panelGrid columns="2" border="3" title="Mail">
+			<h:outputLabel for="form1:betreff" value="Betreff:"/>
+			<h:inputText id="betreff" value="#{mgr.betreff}" />
+			<h:outputLabel for="form1:mailText" value="MailText:"/>
+			<h:inputText id="mailText" size="1000" value="#{mgr.mailText}" />
+		</h:panelGrid>
+		
+		<br/>
+		<h:commandButton id="senden" value="Senden" action="#{mgr.sendeAction}" title="Senden des Textes an die aufgelisteten Mitglieder"></h:commandButton>
+		<br/>
+		<h:commandButton id="home" value="Zurück" action="#{mgr.homeAction}" immediate="true" ></h:commandButton>
+		
+    </h:form>
+</f:view>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+package org.strotmann.util;
+
+import org.strotmann.tcg.Mitglied;
+
+public class FunktionenFuerPages {
+	public static boolean equals( String l1, String l2 ) {
+		return l1.equals(l2);
+		}
+	
+	public static boolean equalsNum( Long l1, Long l2 ) {
+		return l1.equals(l2);
+		}
+	
+	public static String geschPic( Mitglied m ) {
+		if (m.getGeschlecht() == 1)
+			return "images/mann.jpg";
+		else
+			return "images/frau.jpg";
+		}
+	
+	public static String geschlecht( Mitglied m ) {
+		if (m.getGeschlecht() == 1)
+			return "m";
+		else
+			return "f";
+		}
+	
+	public static String status( Mitglied m ) {
+		if (m.getBeitragsklasse() == 7)
+			return "p";
+		else
+			return "a";
+		}
+}

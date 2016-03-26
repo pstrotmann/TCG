@@ -1,0 +1,27 @@
+package service;
+
+import org.apache.commons.validator.routines.checkdigit.CheckDigitException;
+import org.apache.commons.validator.routines.checkdigit.IBANCheckDigit;
+
+public class TestSepa {
+
+	public static void main(String[] args) {
+		
+		String pz = "";
+		
+		try {
+			
+		pz = new IBANCheckDigit().calculate("DE00"+args[0]+args[1]);	
+		
+		} catch (CheckDigitException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("IBAN zu BLZ "+args[0]+" und KtoNr "+args[1]+" ist: "+"DE"+pz+args[0]+"00"+args[1]);		
+		 
+		
+		System.out.println( new IBANCheckDigit().isValid("IBAN zu BLZ "+args[0]+" und KtoNr "+args[1]+" ist: "+"DE"+pz+args[0]+"00"+args[1]));
+		
+	}
+
+}

@@ -1,0 +1,38 @@
+package org.strotmann.tcg;
+
+import java.util.List;
+
+public class MitgliedManager {
+	
+	private long mitgliedId = 0;	
+	private List <Mitglied> mitgliederListe = null;
+	
+	public String homeAction() {
+        
+        return "Erfolg";
+    }
+	
+	public String selectAction() {
+		return "Ändern";
+    }
+	
+	public String listAction() {
+		
+        return "Neu";
+    }
+
+	public List<Mitglied> getMitgliederListe() {
+		MitgliedPersister mitgliedPersister = new MitgliedPersisterDB4O();
+        mitgliederListe = mitgliedPersister.readMitglieder();
+		return mitgliederListe;
+	}
+
+	public long getMitgliedId() {
+		return mitgliedId;
+	}
+
+	public void setMitgliedId(long mitgliedId) {
+		this.mitgliedId = mitgliedId;
+	}
+
+}

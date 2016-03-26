@@ -1,0 +1,124 @@
+package org.strotmann.tcg;
+
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.ResourceBundle;
+
+import org.apache.commons.lang.StringUtils;
+
+public class Dta {
+	
+	ArrayList<Mitglied> abbucher = new ArrayList <Mitglied> ();
+	int summe = 0;
+	
+	private static ResourceBundle beitragProps = ResourceBundle.getBundle("Beitrag");
+	
+	private static ResourceBundle bankProps = ResourceBundle.getBundle("Bank");
+	String tcg27 = StringUtils.rightPad(bankProps.getString("ktoInh"),27);
+	String tcgBlz = bankProps.getString("blz");
+	String tcgKto = bankProps.getString("kto");
+	
+		
+	public Dta(List<Mitglied> mitglieder) {
+		super();
+		for (Mitglied mitglied : mitglieder) {
+			if (mitglied.getZahlungsart() == 1
+			 && mitglied.getBeitragsklasse() < 9)
+				abbucher.add(mitglied);
+		}
+	}
+
+	public String erzeugeDta () {
+		BufferedWriter dtaDatei = outFile ("dta");
+		try {
+		      dtaDatei.write(aSatz());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		for (Mitglied a : abbucher) {
+			try {
+				dtaDatei.write(cSatz(a));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		try {
+			dtaDatei.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return "dta, Sätze:  "+abbucher.size()+", Summe: "+summe;
+	}
+	
+	private static BufferedWriter outFile (String objName) {
+		
+	    BufferedWriter retBuf = null;
+	    
+		try {
+			FileOutputStream fileOutputStream = new FileOutputStream (objName);
+			OutputStreamWriter outpuStreamWriter = null;
+			try {
+				outpuStreamWriter = new OutputStreamWriter (fileOutputStream, "UTF-8");
+			} catch (UnsupportedEncodingException ex) {
+				System.out.println("Encoding nicht gefunden");
+			}
+			retBuf = new BufferedWriter(outpuStreamWriter); 
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		}
+		
+		return retBuf;
+	}
+	
+	private String aSatz () {
+		String s01_70  = "0128ALK"+tcgBlz+"00000000"+tcg27+erstellDat()+"    "+tcgKto;
+		String s71_128 = "0000000000               "+ausfuehrDat()+"                        1";
+		return s01_70 + s71_128;
+	}
+	
+	private String cSatz (Mitglied m) {
+		String blz = StringUtils.leftPad((new Long (m.getBankleitzahl()).toString()),8,'0');
+		String kto = StringUtils.leftPad((new Long (m.getKontonummer()).toString()),10,'0');
+		String s = beitragProps.getString(new Short(m.getBeitragsklasse()).toString());
+		String btrKl = s.split(":")[0];
+		String beitrag = s.split(":")[1];
+		summe = summe + new Integer(beitrag);
+		String btr = StringUtils.leftPad((beitrag + "00"),11,'0');
+		String nam = StringUtils.abbreviate(StringUtils.rightPad((ktoInh(m)),27),27);
+		String verw = StringUtils.abbreviate(StringUtils.rightPad("BEITR 08 09 "+btrKl,27),27).toUpperCase();
+		
+		return "0187C44050199"+tcgBlz+tcgKto+"000000000000005000 00000000000"+blz+kto+btr+"   "+tcg27+"        "+nam+verw+"1  00";
+	}
+	
+	private String ktoInh (Mitglied m) {
+		if (m.getKontoinhaber() != null && m.getKontoinhaber().length() > 0)
+			return m.getKontoinhaber().toUpperCase();
+		else
+			return (m.getVorname()+" "+m.getZuname()).toUpperCase();
+			
+	}
+	
+	private String erstellDat () {
+		Calendar cal = Calendar.getInstance();
+		Date d = cal.getTime();
+		String h = d.toLocaleString().split(" ")[0];
+		return h.substring(0, 2)+h.substring(3, 5)+h.substring(8, 10);
+	}
+	
+	private String ausfuehrDat () {
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.DAY_OF_MONTH, 7);
+		Date d = cal.getTime();
+		String h = d.toLocaleString().split(" ")[0];
+		return h.substring(0, 2)+h.substring(3, 5)+h.substring(6, 10);
+	}
+}

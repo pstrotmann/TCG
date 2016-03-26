@@ -1,0 +1,5 @@
+package org.apache.myfaces.examples.example1;
+
+public class UCaseForm {
+
+}

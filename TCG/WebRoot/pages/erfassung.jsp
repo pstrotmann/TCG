@@ -1,0 +1,179 @@
+<%@ page contentType="text/html; charset=Cp1252" %>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Cp1252"/>
+		<title>TCG</title>
+	</head>
+	<body>
+		<f:view>
+			<h1>
+      			<h:outputText value="Mitgliedererfassung"/>
+     		</h1>
+			
+			<h:form id="form1">
+				
+				<t:messages id="messageList" styleClass="error" summaryFormat="{0} in {1}" />
+
+				<h:panelGrid columns="6" border="3" title="persönliche Daten">
+						<h:outputLabel for="form1:vorname" value="Vorname:"/>
+						<h:inputText id="vorname" value="#{mgr.mitglied.vorname}" required="true"/>	
+						<h:message for="form1:vorname" styleClass="error" />						
+						
+						<h:outputLabel for="form1:zuname" value="Zuname:"/>
+						<h:inputText id="zuname" value="#{mgr.mitglied.zuname}" required="true" />
+						<h:message for="form1:zuname" styleClass="error" />							
+						 
+						<h:outputLabel for="form1:geschlecht" value="Geschlecht:"/>
+						<h:selectOneMenu id="geschlecht" value="#{mgr.mitglied.geschlecht}">
+		                    <f:selectItems id="selGeschlechter" value="#{auswahl.geschlechter}"/>
+		            	</h:selectOneMenu>
+						<h:message for="form1:geschlecht" styleClass="error" />							
+						 
+						<h:outputLabel for="form1:geburtsdatum" value="Geburtsdatum:"/>
+						<t:inputCalendar id="geburtsdatum" value="#{mgr.mitglied.geburtsdatum}" renderAsPopup="true" popupDateFormat="dd.MM.yyyy" required="true" validator="#{mgr.valDatum}" />
+						<h:message for="form1:geburtsdatum" styleClass="error" />
+						
+						<h:outputLabel for="form1:kzA" value="Briefempfänger:"/>
+						<h:selectBooleanCheckbox id="kzA" value="#{mgr.briefempfaenger}"></h:selectBooleanCheckbox>
+						<h:message for="form1:kzA" styleClass="error" />
+						
+						<h:outputLabel for="form1:anrede" value="Anrede:"/>
+						<h:outputText id="anrede" value="#{mgr.anrede}"/>
+						<h:outputText id="filler" value=""/>
+						
+				</h:panelGrid>
+				<br/>
+				<h:panelGrid columns="9" border="3" title="Adresse">
+						<h:outputLabel for="form1:strasse" value="Straße:"/>
+						<h:inputText id="strasse" value="#{mgr.mitglied.strasse}" required="true"/>	
+						<h:message for="form1:strasse" styleClass="error" />
+						
+						<h:outputLabel for="form1:hausnummer" value="HausNr:"/>
+						<h:inputText id="hausnummer" value="#{mgr.mitglied.hausnummer}" size="3" required="true"/>	
+						<h:message for="form1:hausnummer" styleClass="error" />
+						
+						<h:outputLabel for="form1:hausnummerZus" value="Zusatz:"/>
+						<h:inputText id="hausnummerZus" value="#{mgr.mitglied.hausnummerZus}" size="2" />	
+						<h:message for="form1:hausnummerZus" styleClass="error" />
+						
+						<h:outputLabel for="form1:postleitzahl" value="Plz:"/>
+						<h:inputText id="postleitzahl" value="#{mgr.mitglied.postleitzahl}" size="5" required="true"/>	
+						<h:message for="form1:postleitzahl" styleClass="error" />
+						
+						<h:outputLabel for="form1:ort" value="Ort:"/>
+						<h:inputText id="ort" value="#{mgr.mitglied.ort}" required="true"/>	
+						<h:message for="form1:ort" styleClass="error" />
+						
+						<h:outputText value=""/>
+						<h:outputText value=""/>
+						<h:outputText value=""/>
+						
+				</h:panelGrid>
+				<br/>
+				<h:panelGrid columns="3" border="3" title="Kommunikationsdaten">
+				
+						<h:outputLabel for="form1:festnetz" value="Festnetz:"/>
+						<h:inputText id="festnetz" value="#{mgr.mitglied.festnetz}" />
+						<h:message for="form1:festnetz" styleClass="error" />
+						
+						<h:outputLabel for="form1:dienstanschluss" value="Dienstanschluss:"/>
+						<h:inputText id="dienstanschluss" value="#{mgr.mitglied.dienstanschluss}" />
+						<h:message for="form1:dienstanschluss" styleClass="error" />	
+						
+						<h:outputLabel for="form1:handy" value="Handy:"/>
+						<h:inputText id="handy" value="#{mgr.mitglied.handy}" />
+						<h:message for="form1:handy" styleClass="error" />
+						
+						<h:outputLabel for="form1:email" value="eMail:"/>
+						<h:inputText id="email" size="50" value="#{mgr.mitglied.email}"  >
+							<t:validateEmail/>
+						</h:inputText>
+						<h:message for="form1:email" styleClass="error" />
+				</h:panelGrid>
+				<br/>
+				<h:panelGrid columns="3" border="3" title="vereinsrelevante Daten">		
+						<h:outputLabel for="form1:eintrittsdatum" value="Eintrittsdatum:"/>
+						<t:inputCalendar id="eintrittsdatum" value="#{mgr.mitglied.eintrittsdatum}" renderAsPopup="true" popupDateFormat="dd.MM.yyyy" required="true" validator="#{mgr.valDatum}" />
+						<h:message for="form1:eintrittsdatum" styleClass="error" />
+						
+						<h:outputLabel for="form1:status" value="Status:"/>
+						<h:outputText id="status" value="#{mgr.mitglied.status}" />
+						<h:outputText value=""></h:outputText>
+						
+						<h:outputLabel for="form1:amt" value="Amt:"/>
+						<h:selectOneMenu id="amt" value="#{mgr.mitglied.amt}">
+							<f:selectItems id="selAemter" value="#{auswahl.aemter}"/>
+		            	</h:selectOneMenu>
+						<h:message for="form1:amt" styleClass="error" />
+            			
+						<h:outputLabel for="form1:austrittsdatum" value="Austrittsdatum:"/>
+						<t:inputCalendar id="austrittsdatum" value="#{mgr.mitglied.austrittsdatum}" renderAsPopup="true" popupDateFormat="dd.MM.yyyy" validator="#{mgr.valDatum}" />
+						<h:message for="form1:austrittsdatum" styleClass="error" />
+				</h:panelGrid>
+				<br/>
+				<h:panelGrid columns="6" border="3" title="Beitragszahlung">
+						<h:outputLabel for="form1:beitragsklasse" value="Beitragsklasse:"/>
+						<h:selectOneMenu id="beitragsklasse" value="#{mgr.mitglied.beitragsklasse}">
+							<f:selectItems id="selBeitragsklassen" value="#{auswahl.beitragsklassen}"/>
+		            	</h:selectOneMenu>
+						<h:message for="beitragsklasse" styleClass="error" />
+						
+						<h:outputLabel for="form1:zahlungsart" value="Zahlungsart:"/>
+						<h:selectOneMenu id="zahlungsart" value="#{mgr.mitglied.zahlungsart}">
+							<f:selectItems id="selZahlungsarten" value="#{auswahl.zahlungsarten}"/>
+		            	</h:selectOneMenu>
+						<h:message for="zahlungsart" styleClass="error" />	
+						
+						<h:outputLabel for="form1:IBAN" value="IBAN:"/>
+						<h:inputText id="IBAN" value="#{mgr.mitglied.IBAN}" size="22" validator="#{mgr.valIban}"/>
+						<h:message for="form1:IBAN" styleClass="error" />
+						
+						<h:outputLabel for="form1:kontoinhaber" value="Kontoinhaber:"/>
+						<h:inputText id="kontoinhaber" value="#{mgr.mitglied.kontoinhaber}" />
+						<h:message for="form1:kontoinhaber" styleClass="error" />
+						
+						<h:outputLabel for="form1:bankleitzahl" value="Bankleitzahl:"/>
+						<h:outputText id="bankleitzahl" value="#{mgr.mitglied.bankleitzahl}" />
+						<h:outputText value=""></h:outputText>
+						
+						<h:outputLabel for="form1:kontonummer" value="Kontonummer:"/>
+						<h:outputText id="kontonummer" value="#{mgr.mitglied.kontonummer}" />
+						<h:outputText value=""></h:outputText>
+												
+						<h:outputLabel for="form1:BIC" value="BIC:"/>
+						<h:outputText id="BIC" value="#{mgr.mitglied.BIC}" />
+						<h:outputText value=""></h:outputText>
+						
+						<h:outputText value=""></h:outputText>
+						<h:outputText value=""></h:outputText>
+						<h:outputText value=""></h:outputText>
+				</h:panelGrid>
+				<br/>
+				<h:panelGrid columns="6" border="3" title="Notizen zum Mitglied" >					
+					<h:outputLabel for="form1:kzB" value="Notiz-1:"/>
+					<h:inputText id="kzB" size="80" value="#{mgr.mitglied.kzB}" />
+					<h:message for="form1:kzB" styleClass="error" />
+					<h:outputLabel for="form1:kzC" value="Notiz-2:"/>
+					<h:inputText id="kzC" size="80" value="#{mgr.mitglied.kzC}" />
+					<h:message for="form1:kzC" styleClass="error" />
+				</h:panelGrid>
+				
+				<br/>
+				<h:outputText id="nachricht" value="#{mgr.erfNachricht}"/>
+				<br/>
+				
+				<h:commandButton id="home" value="Zurück" action="#{mgr.homeAction}" immediate="true" title="Rücksprung zur Auswahlliste"></h:commandButton>
+				<h:commandButton id="store" value="Speichern" action="#{mgr.storeAction}" title="Speichern des Mitgliedes"></h:commandButton>
+				<h:outputText id="filler" value="__________________"/>
+				<h:commandButton id="delete" value="Löschen" action="#{mgr.deleteAction}" title="Löschen des Mitgliedes"></h:commandButton>
+				<br/>
+	
+			</h:form>
+		</f:view>
+	</body>
+</html>
+

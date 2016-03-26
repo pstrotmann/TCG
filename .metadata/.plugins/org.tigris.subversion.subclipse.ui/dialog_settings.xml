@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="614" key="passwordStores.size.y"/>
+	<item value="1278" key="passwordStores.size.x"/>
+	<item value="file:///opt/svnRepos/tcg/TCG/WebRoot/pages/erfassung.jsp" key="UrlCombo.TCG.0"/>
+	<item value="150" key="CommitDialog.column2"/>
+	<item value="1" key="CommitDialog.sortColumn"/>
+	<item value="223" key="HistoryTableProvider.SVNHistoryPage.Date"/>
+	<item value="487" key="CommitDialog.column1"/>
+	<item value="444" key="HistoryTableProvider.SVNHistoryPage.Comment"/>
+	<item value="645" key="CommitDialog.column3"/>
+	<item value="89" key="HistoryTableProvider.SVNHistoryPage.Revision"/>
+	<item value="20" key="CommitDialog.column0"/>
+	<item value="500" key="CommitDialog.weights.0"/>
+	<item value="500" key="CommitDialog.weights.1"/>
+	<item value="178" key="HistoryTableProvider.SVNHistoryPage.Author"/>
+	<item value="817" key="SwitchDialogWithConflictHandling.size.y"/>
+	<item value="574" key="SwitchDialogWithConflictHandling.size.x"/>
+	<item value="1634" key="SwitchDialogWithConflictHandling.location.x"/>
+	<item value="0" key="SwitchDialogWithConflictHandling.location.y"/>
+	<item value="0" key="CommitDialog.location.y"/>
+	<item value="false" key="CommitDialog.sortReversed"/>
+	<item value="0" key="CommitDialog.location.x"/>
+	<item value="0" key="passwordStores.location.y"/>
+	<item value="0" key="passwordStores.location.x"/>
+	<item value="1278" key="CommitDialog.size.x"/>
+	<item value="968" key="CommitDialog.size.y"/>
+	<section name="CommitWizard">
+		<item value="false" key="ShowCompare"/>
+		<item value="500" key="VWeight2"/>
+		<item value="500" key="VWeight1"/>
+	</section>
+	<section name="NewLocationWizard">
+		<list key="ConfigurationWizardMainPage.STORE_URL_ID">
+			<item value="file:///opt/svnRepos"/>
+			<item value="file:///opt/svnRepos/tcg"/>
+			<item value=""/>
+		</list>
+	</section>
+</section>

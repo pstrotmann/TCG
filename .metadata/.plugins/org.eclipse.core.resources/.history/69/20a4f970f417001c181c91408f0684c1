@@ -1,0 +1,51 @@
+package org.strotmann.tcg;
+
+import java.util.List;
+import java.util.Map;
+
+import javax.faces.component.UIForm;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionListener;
+
+public class MitgliedManager {
+	
+	private Mitglied mitglied = new Mitglied();
+	private List <Mitglied> mitgliederListe = null;
+	
+	public String storeAction() {
+        
+        MitgliedPersister mitgliedPersister = new MitgliedPersisterDB4O();
+        mitgliedPersister.create(mitglied);
+        
+        return "Erfolg";
+    }
+	
+	public String homeAction() {
+        
+        return "Erfolg";
+    }
+	
+	public String selectAction() {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		ActionListener a = facesContext.getApplication().getActionListener();
+		UIForm form = (UIForm)facesContext.getViewRoot().findComponent("form1");
+        Map attributes = form.getAttributes();
+		return "Ändern";
+    }
+	
+	public String listAction() {
+		
+        return "Neu";
+    }
+
+	public Mitglied getMitglied() {
+		return this.mitglied;
+	}
+
+	public List<Mitglied> getMitgliederListe() {
+		MitgliedPersister mitgliedPersister = new MitgliedPersisterDB4O();
+        mitgliederListe = mitgliedPersister.readMitglieder();
+		return mitgliederListe;
+	}
+
+}

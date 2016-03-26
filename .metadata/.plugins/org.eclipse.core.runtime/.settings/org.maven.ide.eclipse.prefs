@@ -1,0 +1,5 @@
+#Sat Aug 28 17:09:53 CEST 2010
+forceRebuildOnUpgrade=true
+eclipse.preferences.version=1
+eclipse.m2.defaultRuntime=/opt/spring/springsource/maven-2.2.1.RELEASE
+eclipse.m2.runtimes=/opt/spring/springsource/maven-2.2.1.RELEASE

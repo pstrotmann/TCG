@@ -1,0 +1,230 @@
+<%@ page session="false" contentType="text/html;charset=utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
+<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
+<%@ taglib uri="http://myfaces.apache.org/sandbox" prefix="s"%>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=Cp1252"/>
+	<title>TCG</title>
+</head>
+
+<body>
+
+<f:view>
+
+	<h1 align="center">
+		<t:graphicImage value="/images/tcg-logo-mittel.jpg"></t:graphicImage>
+		<h:outputText value="Mitgliederverwaltung"/>				
+		<t:graphicImage value="/images/tcg-logo-mittel.jpg"></t:graphicImage>
+	</h1>
+
+    <h:form>
+    
+    	<h2 align="center">
+			<h:outputText value="Suchfilter"/>
+  		</h2>
+          			
+		<h:panelGrid border="3" columns="9" align="center">
+			
+         	   <h:outputText  value="" />
+               <h:outputText  value="" />
+               <h:outputText  value="" />
+               <h:commandButton value="#{mSuch}" title="Selektieren von Mitgliedern" actionListener="#{mgr.getSucherAction}" action="#{mgr.suchAction}"
+     			image="/images/tennismaenchen.jpg"  >
+         			</h:commandButton>
+               <h:outputText  value="" />
+               <h:outputText  value="" />
+               <h:outputText  value="" />
+               <h:outputText  value="" />
+               <h:outputText  value="" />
+              
+               <h:outputText  value="Vorname" />
+               <h:outputText  value="Zuname" />
+               <h:outputText  value="Geschlecht" />
+               <h:outputText  value="Status" />
+               <h:outputText  value="Amt" />
+               <h:outputText  value="" />
+               <h:outputText  value="Geburtsdatum" />
+               <h:outputText  value="Eintrittsdatum" />
+               <h:outputText  value="Austrittsdatum" />
+               
+			<h:inputText  value="#{mSuch.vorname}" />
+			<h:inputText  value="#{mSuch.zuname}" />
+			<h:selectOneMenu id="geschlecht" value="#{mSuch.geschNum}">
+					<f:selectItem itemValue="#{0}" itemLabel="" />
+                    <f:selectItem itemValue="#{1}" itemLabel="männlich" />
+                    <f:selectItem itemValue="#{2}" itemLabel="weiblich" />
+            </h:selectOneMenu>
+			<h:selectOneMenu id="status" value="#{mSuch.statNum}">
+					<f:selectItem itemValue="#{0}" itemLabel="" />
+                    <f:selectItem itemValue="#{1}" itemLabel="aktiv" />
+                    <f:selectItem itemValue="#{2}" itemLabel="passiv" />
+            </h:selectOneMenu>
+            <h:selectBooleanCheckbox id="amt" value="#{mSuch.amt}">
+            </h:selectBooleanCheckbox>
+			<h:outputText  value="von:" />
+			<h:inputText  value="#{mSuch.geburtsdatumAb}" size="10"/>
+            <h:inputText  value="#{mSuch.eintrittsdatumAb}" size="10"/>
+            <h:inputText  value="#{mSuch.austrittsdatumAb}" size="10"/>
+            
+            <h:outputText  value="" />
+            <h:outputText  value="" />
+            <h:outputText  value="" />
+            <h:outputText  value="" />
+            <h:outputText  value="" />
+            <h:outputText  value="bis:" />
+            <h:inputText  value="#{mSuch.geburtsdatumBis}" size="10"/>
+            <h:inputText  value="#{mSuch.eintrittsdatumBis}" size="10"/>
+            <h:inputText  value="#{mSuch.austrittsdatumBis}" size="10"/>
+             
+		</h:panelGrid>
+		
+		<br/>
+		<h:outputText id="nachricht" value="#{mgr.erfNachricht}"/>
+		
+		<h2 align="center">
+			<h:outputText value="Mitgliederliste"/>
+   		</h2>
+		
+		<t:dataTable
+				 id="mitTab"
+				 rowIndexVar="ind"
+				 headerClass="standardTable_Header"
+				 var="mitglied"
+				 value="#{mgr.mitgliederListe}"	
+				 sortColumn="#{mgr.sort}"
+                 sortAscending="#{mgr.ascending}"
+				 border="3"
+				 bgcolor="white"
+				>
+				
+				<h:column >
+				
+				<f:facet name="header">
+					<h:outputText id="anzahl" value="#{mgr.anzahlMitglieder}"/>    
+				</f:facet>
+				
+           		<h:commandButton value="#{mitglied.mitgliedId}" title="Anzeigen/Bearbeiten des Mitgliedes" actionListener="#{mgr.getMitgliedAction}" action="#{mgr.selectAction}"
+           		   image="/images/quick_edit.gif">
+           		</h:commandButton>
+				</h:column>
+				
+				<h:column>
+				   <f:facet name="header">
+				    <t:commandSortHeader columnName="vorname" >
+				     <h:outputText value="Vorname" />
+				     
+				    </t:commandSortHeader> 
+				   </f:facet>
+				   	<h:outputText value="#{mitglied.vorname}" />
+	            </h:column>
+	            
+	            <h:column>
+	               <f:facet name="header">
+	                <t:commandSortHeader columnName="zuname">
+	                 <h:outputText value="Zuname" />
+	                 
+	                </t:commandSortHeader>
+				   </f:facet>	
+	               <h:outputText value="#{mitglied.zuname}" />
+	            </h:column>
+	            
+	            <h:column>
+	               <f:facet name="header">
+	                <t:commandSortHeader columnName="geschlecht">
+	                 <h:outputText value="Geschlecht" />
+	                </t:commandSortHeader>
+				   </f:facet>	
+	               <h:outputText value="#{mitglied.geschlecht}"/>
+	            </h:column>
+	            
+	            <h:column>
+	               <f:facet name="header">
+				   	<t:commandSortHeader columnName="geburtsdatum">
+	                 <h:outputText value="Geburtsdatum" title="Sortieren nach Vorname"/>
+	                 
+	                </t:commandSortHeader>
+				   </f:facet>
+	               <h:outputText value="#{mitglied.geburtsdatum}" converter="datumConverter"/>
+	            </h:column>
+	            <h:column>
+	               <f:facet name="header">
+				   	<t:commandSortHeader columnName="eintrittsdatum">
+	                 <h:outputText value="Eintrittsdatum" />
+	                 
+	                </t:commandSortHeader>
+				   </f:facet>
+	               <h:outputText value="#{mitglied.eintrittsdatum}" converter="datumConverter"/>
+	            </h:column>
+	            <h:column>
+	               <f:facet name="header">
+	                <t:commandSortHeader columnName="status">
+				   	 <h:outputText value="Status" />
+				   	 
+				   	</t:commandSortHeader>
+				   </f:facet>
+				   <h:outputText value="#{mitglied.status}"/>
+	            </h:column>
+	            <h:column>
+	               <f:facet name="header">
+	                <t:commandSortHeader columnName="austrittsdatum">
+	                 <h:outputText value="Austrittsdatum" />
+	                 
+	                </t:commandSortHeader>
+				   </f:facet>
+	               <h:outputText value="#{mitglied.austrittsdatum}" converter="datumConverter"/>
+	            </h:column>
+	            <h:column>
+	               <f:facet name="header">
+				   	<t:commandSortHeader columnName="email">
+	                 <h:outputText value="eMail" />
+	                 
+	                </t:commandSortHeader>
+				   </f:facet>
+	               <h:outputText value="#{mitglied.email}" />
+	            </h:column>
+	            <h:column>
+	               <f:facet name="header">
+				   	<h:outputText value="Telefon" />
+				   </f:facet>
+				   <h:outputText value="#{mitglied.festnetz}" />
+	            </h:column>
+				
+		</t:dataTable>
+		
+		<h2 align="center">
+			<h:outputText value="Neuanlage eines Mitgliedes"/>
+			<h:commandButton value="Neu" action="#{mgr.neuAction}" title="Neuanlage eines Mitgliedes" image="/images/quick_edit.gif"/>
+		</h2>
+		
+		<h2 align="center">
+			<h:outputText value="Ausgeben der Liste in eine Excel Datei"/>
+		
+			<s:excelExport for="mitTab">
+				<h:commandButton action="" value="Export nach Excel" image="/images/table24.gif" title="Ausgeben der Liste in eine Excel Datei"/>
+			</s:excelExport>
+		</h2>
+		
+		<h2 align="center">
+			<h:outputText value="Liste anmailen"/>
+			<h:commandButton value="Adressen" action="#{mgr.mailsAction}" title="Anmailen der aufgelisteten Mitglieder" image="/images/quick_edit.gif"/>
+		</h2>
+		
+		<h2 align="center">
+			<h:outputText value="Beitragsliste"/>
+			<h:commandButton value="Beitraege" action="#{mgr.beitraegeAction}" title="Anzeigen der Beiträge" image="/images/tennismaenchen.jpg"/>
+		</h2>
+		
+		<h2 align="center">
+			<h:outputText value="Adressliste"/>
+			<h:commandButton value="Adressen" action="#{mgr.adressenAction}" title="Anzeigen der Adressen der Briefempfänger" image="/images/tennismaenchen.jpg"/>
+		</h2>
+				
+    </h:form>
+</f:view>
+
+</body>
+
+</html>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session version="1.0">
+<refactoring id="org.eclipse.jdt.ui.rename.resource" stamp="1179825564876" flags="7" description="Rename resource 'message.properties'" comment="Rename resource '/GuessNumber/WebContent/WEB-INF/src/game/message.properties' to 'messages.properties'&#10;- Original element: 'message.properties'" input="WebContent/WEB-INF/src/game/message.properties" name="messages.properties" version="1.0"/>
+</session>

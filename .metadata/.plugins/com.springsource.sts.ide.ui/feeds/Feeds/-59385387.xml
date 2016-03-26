@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xml:base="http://www.springsource.org"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+ <title>SpringSource.org</title>
+ <link>http://www.springsource.org</link>
+ <description>Welcome to the home of Spring, the leading platform to build and run enterprise Java applications. Led and sustained by SpringSource, Spring delivers significant benefits for many projects, increasing development productivity and runtime performance while improving test coverage and application quality.</description>
+ <language>en</language>
+<item>
+ <title>Spring Data Document with MongoDB Support 1.0.0.M2 Released</title>
+ <link>http://www.springsource.org/node/3089</link>
+ <description>&lt;p&gt;Dear Spring Community,&lt;/p&gt;
+&lt;p&gt;I am pleased to announce that the second milestone release of the Spring Data Document 1.0 project with MongoDB support is now available!&lt;/p&gt;
+&lt;p&gt;The primary goal of the &lt;b&gt;Spring Data&lt;/B&gt; project is to make it easier to build Spring-powered applications that use new data access technologies such as non-relational databases, map-reduce frameworks, and cloud based data services.&lt;/p&gt;
+&lt;p&gt;The MongoDB module provides integration with the &lt;a href=&quot;http://www.mongodb.org&quot;&gt;MongoDB&lt;/a&gt; document database.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.springsource.com/download/community?project=Spring%20Data&amp;amp;version=1.0.0.M2&quot;&gt;Downloads&lt;/a&gt; | &lt;a href=&quot;http://static.springsource.org/spring-data/data-document/docs/1.0.0.M2/api/&quot;&gt;JavaDocs&lt;/a&gt; | &lt;a href=&quot;http://static.springsource.org/spring-data/data-document/docs/1.0.0.M2/reference/html/&quot;&gt;Reference Documentation&lt;/a&gt; | &lt;a href=&quot;http://static.springframework.org/spring-data/data-document/docs/1.0.0.M2/changelog.txt&quot;&gt;Changelog&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To learn more about the project, visit the Spring Data &lt;a href=&quot;http://www.springsource.org/spring-data/mongodb&quot;&gt;MongoDB Page&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;The changes and new features in Spring Data Document 1.0.0.M2 include:&lt;/p&gt;
+&lt;h4&gt;General&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Spring configuration support using Java based @Configuration classes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Core Data Access&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Persistence and mapping lifecycle events&lt;/li&gt;
+&lt;li&gt;GeoSpatial integration&lt;/li&gt;
+&lt;li&gt;[DATADOC-76] - Add support for findAndRemove to MongoTemplate/MongoOperations&lt;/li&gt;
+&lt;li&gt;[DATADOC-5] - Provide detailed mapping of Mongo errors onto Spring DAO exception&lt;/li&gt;
+&lt;li&gt;[DATADOC-51] - Fixed issue with exceptions thrown when authenticating multiple times for same DB instance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Querying&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;[DATADOC-72] - Add support for Mongo&#039;s $elemMatch and chained Criteria&lt;/li&gt;
+&lt;li&gt;[DATADOC-77] - Rename &quot;and&quot; method in Query to &quot;addCritera&quot;&lt;/li&gt;
+&lt;li&gt;[DATADOC-67] - Criteria API to support keywords for geo search&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Mapping&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Feature Rich Object Mapping integrated with Spring&#039;s Conversion Service&lt;/li&gt;
+&lt;li&gt;Annotation based mapping metadata but extensible to support other metadata formats&lt;/li&gt;
+&lt;li&gt;[DATADOC-60] - Add namespace support to setup a MappingMongoConverter&lt;/li&gt;
+&lt;li&gt;[DATADOC-33] - Introduce annotation to demarcate id field in a domain object&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Repository&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;[DATADOC-47, DATACMNS-17] - Adapted new metamodel API&lt;/li&gt;
+&lt;li&gt;[DATADOC-46] - Added support for &#039;In&#039; and &#039;NotIn&#039; keyword&lt;/li&gt;
+&lt;li&gt;[DATADOC-49] - Fixed &#039;And&#039; and &#039;Or&#039; keywords&lt;/li&gt;
+&lt;li&gt;[DATADOC-41] - Added support for executing QueryDsl predicates&lt;/li&gt;
+&lt;li&gt;[DATADOC-69] - Let repository namespace pickup the default mapping context bean and allow configuration&lt;/li&gt;
+&lt;li&gt;[DATADOC-24] - Allow use of @Query annotation to define queries&lt;/li&gt;
+&lt;li&gt;[DATADOC-34] - Create indexes for columns that are mentioned in query methods&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Cross-Store&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;[DATADOC-48] - Cross-store persistance - support for JPA Entities with fields transparently persisted/retrieved using MongoDB&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Logging&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;[DATADOC-66] - Log4j log appender&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Looking forward to your feedback on the &lt;a href=&quot;http://forum.springsource.org/forumdisplay.php?f=80&quot;&gt;forum&lt;/a&gt; or in the &lt;a href=&quot;https://jira.springsource.org/browse/DATADOC&quot;&gt;issue tracker&lt;/a&gt;.&lt;/p&gt;
+</description>
+ <comments>http://www.springsource.org/node/3089#comments</comments>
+ <category domain="http://www.springsource.org/taxonomy/term/4">News and Announcements</category>
+ <pubDate>Sat, 09 Apr 2011 23:28:16 +0000</pubDate>
+ <dc:creator>Thomas Risberg</dc:creator>
+ <guid isPermaLink="false">3089 at http://www.springsource.org</guid>
+</item>
+<item>
+ <title>Spring.NET Visual Studio 2010 Extension 1.0.0 is now available</title>
+ <link>http://www.springsource.org/node/3087</link>
+ <description>Dear Spring Community, &lt;br&gt;
+            &lt;br&gt;
+We are pleased to announce that the Spring.NET Visual Studio 2010 Extension 1.0.0 is now available.&lt;br&gt;
+            &lt;br&gt;
+            &lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;/span&gt;&lt;a
+ href=&quot;http://www.springsource.com/download/community?project=Spring.NET%20Visual%20Studio%202010%20Extension&quot; target=&quot;_new&quot;&gt;Download&lt;/a&gt;
+| &lt;a href=&quot;http://www.vmware.com/support/services/developer.html&quot; target=&quot;_new&quot;&gt;Support&lt;/a&gt; | &lt;a href=&quot;http://www.springframework.net/vsnet/doc-latest/reference/html/&quot; target=&quot;_new&quot;&gt;Documentation&lt;/a&gt;
+|&amp;nbsp;&lt;a href=&quot;http://forum.springframework.net/&quot; target=&quot;_new&quot;&gt;Community&lt;/a&gt;&lt;br&gt;
+            &lt;br&gt;
+This release of the Spring.NET Visual Studio 2010 Extension provides Intellisense support in the following areas for editing Spring XML configuration files:&lt;br/&gt;
+            &lt;ul&gt;
+				&lt;li class=&quot;newslist&quot;&gt;Type completion&lt;/li&gt;
+				&lt;li class=&quot;newslist&quot;&gt;Property name completion&lt;/li&gt;
+				&lt;li class=&quot;newslist&quot;&gt;Constructor argument name completion&lt;/li&gt;
+				&lt;li class=&quot;newslist&quot;&gt;Property value completion for property of type &#039;Type&#039;, &#039;Enum&#039; and &#039;Boolean&#039;&lt;/li&gt;
+			&lt;/ul&gt;
+
+&lt;br/&gt;
+In addition, this release also provides for the following enhancements to the Visual Studio 2010 XML Editor experience:&lt;br/&gt;
+            &lt;ul&gt;
+				&lt;li class=&quot;newslist&quot;&gt;Snippets integration (inline or by menu)&lt;/li&gt;
+				&lt;li class=&quot;newslist&quot;&gt;Quickinfo tooltip for properties and types&lt;/li&gt;
+			&lt;/ul&gt;            
+			
+&lt;p&gt;A brief screencast of this tool in action can be watched &lt;a href=&quot;http://maruxelo.free.fr/spring/index2.html&quot; target=&quot;_new&quot;&gt;here.&lt;/a&gt;&lt;/p&gt;			
+
+&lt;p&gt;This project is hosted at &lt;a href=&quot;https://github.com/SpringSource/spring-net-vsnet&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As always, we encourage &lt;a href=&quot;http://forum.springframework.net/&quot; target=&quot;_new&quot;&gt;feedback from the community&lt;/a&gt; on this and all aspects of Spring.NET!&lt;/p&gt;</description>
+ <comments>http://www.springsource.org/node/3087#comments</comments>
+ <category domain="http://www.springsource.org/taxonomy/term/4">News and Announcements</category>
+ <pubDate>Thu, 07 Apr 2011 16:20:24 +0000</pubDate>
+ <dc:creator>sbohlen</dc:creator>
+ <guid isPermaLink="false">3087 at http://www.springsource.org</guid>
+</item>
+<item>
+ <title>Spring CodeConfig for .NET 1.0.0 is now available</title>
+ <link>http://www.springsource.org/node/3086</link>
+ <description>Dear Spring Community, &lt;br&gt;
+
+We are pleased to announce that Spring CodeConfig for .NET 1.0.0 is now available.&lt;br&gt;
+
+&lt;a href=&quot;http://www.springsource.com/download/community?project=Spring%20CodeConfig%20for%20.NET&quot; target=&quot;_new&quot;&gt;Download&lt;/a&gt;
+| &lt;a href=&quot;http://nuget.org/List/Packages/Spring.CodeConfig&quot; target=&quot;_new&quot;&gt;NuGet Package&lt;/a&gt; | &lt;a href=&quot;http://www.vmware.com/support/services/developer.html&quot; target=&quot;_new&quot;&gt;Support&lt;/a&gt; | &lt;a href=&quot;http://www.springframework.net/codeconfig/doc-latest/reference/html/&quot; target=&quot;_new&quot;&gt;Documentation&lt;/a&gt;
+|&amp;nbsp;&lt;a href=&quot;http://forum.springframework.net/&quot; target=&quot;_new&quot;&gt;Community&lt;/a&gt;&lt;br&gt;
+
+			
+			&lt;p&gt;Note also that Spring CodeConfig for .NET is also available as &lt;a href=&quot;http://nuget.org/List/Packages/Spring.CodeConfig&quot; target=&quot;_new&quot;&gt;a NuGet Package&lt;/a&gt;.&lt;/p&gt;
+This release contains the following major features:&lt;br&gt;
+            &lt;ul&gt;
+				&lt;li class=&quot;newslist&quot;&gt;Code-based configuration similar to the @Configuration support in Spring Java&lt;/li&gt;
+				&lt;li class=&quot;newslist&quot;&gt;Declarative Assembly Scanning to detect Configuration Classes&lt;/li&gt;
+				&lt;li class=&quot;newslist&quot;&gt;Support for mixing and matching Code-based and XML-based configuration metadata&lt;/li&gt;
+				&lt;li class=&quot;newslist&quot;&gt;Extension Methods to support Code-Based Configuration on existing Application Contexts&lt;/li&gt;
+				&lt;li class=&quot;newslist&quot;&gt;Bootstrapping the Context configuration from either Code-First or XML-First approaches&lt;/li&gt;
+			&lt;/ul&gt;
+            
+&lt;p&gt;This project is hosted at &lt;a href=&quot;https://github.com/SpringSource/spring-net-codeconfig&quot;&gt;GitHub&lt;/a&gt; and is the first step in the process of
+expanding Spring.NET&#039;s support for non-XML-dependent configuration scenarios.
+&lt;/p&gt;
+&lt;p&gt;
+The next steps for this project include the following:
+&lt;/p&gt;
+	&lt;ul&gt;
+		&lt;li class=&quot;newslist&quot;&gt;Definition of additional elements such as Aspects and ValueResolvers&lt;/li&gt;
+		&lt;li class=&quot;newslist&quot;&gt;Convention/Rule-based Object Definitions, Registrations, Aspects, PointCuts, and JoinPoints&lt;/li&gt;
+		&lt;li class=&quot;newslist&quot;&gt;Fluent Object Definition API&lt;/li&gt;
+	&lt;/ul&gt;
+
+	&lt;p&gt;As always, we encourage &lt;a href=&quot;http://forum.springframework.net/&quot; target=&quot;_new&quot;&gt;feedback from the community&lt;/a&gt; on this and all aspects of Spring.NET!&lt;/p&gt;
+</description>
+ <comments>http://www.springsource.org/node/3086#comments</comments>
+ <category domain="http://www.springsource.org/taxonomy/term/4">News and Announcements</category>
+ <pubDate>Thu, 07 Apr 2011 16:18:57 +0000</pubDate>
+ <dc:creator>sbohlen</dc:creator>
+ <guid isPermaLink="false">3086 at http://www.springsource.org</guid>
+</item>
+<item>
+ <title>Basic Spring.NET 1.3.1 packages are now available via the NuGet Package Management System</title>
+ <link>http://www.springsource.org/node/3085</link>
+ <description>&lt;p&gt;Dear Spring Community, &lt;/p&gt;
+&lt;p&gt;We are pleased to announce that the initial basic Spring.NET 1.3.1 packages are now available via &lt;a href=&quot;http://nuget.org&quot; target=&quot;_new&quot;&gt;the NuGet Package Management System&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The following Packages are now available:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class=&quot;newslist&quot;&gt;&lt;a href=&quot;http://nuget.org/List/Packages/Spring.Core&quot; target=&quot;_new&quot;&gt;Spring.Core&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;newslist&quot;&gt;&lt;a href=&quot;http://nuget.org/List/Packages/Spring.Aop&quot; target=&quot;_new&quot;&gt;Spring.Aop&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We have also made the corresponding DEBUG builds of these same packages available on NuGet as well.  Since NuGet does not inherently support (yet!) a single package containing both RELEASE and DEBUG builds of a single logical package, we are following the convention of appending the RELEASE package name with the &quot;.Debug&quot; suffix as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class=&quot;newslist&quot;&gt;&lt;a href=&quot;http://nuget.org/List/Packages/Spring.Core.Debug&quot; target=&quot;_new&quot;&gt;Spring.Core.Debug&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;newslist&quot;&gt;&lt;a href=&quot;http://nuget.org/List/Packages/Spring.Aop.Debug&quot; target=&quot;_new&quot;&gt;Spring.Aop.Debug&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is merely the initial step in making all of the Spring.NET Framework available in NuGet.  Coming soon will be packages for the following additional higher-level components of the Spring.NET Framework as well:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class=&quot;newslist&quot;&gt;Spring.Data&lt;/li&gt;
+&lt;li class=&quot;newslist&quot;&gt;Spring.Data.NHibernate&lt;/li&gt;
+&lt;li class=&quot;newslist&quot;&gt;Spring.Scheduling&lt;/li&gt;
+&lt;li class=&quot;newslist&quot;&gt;Spring.Messaging&lt;/li&gt;
+&lt;li class=&quot;newslist&quot;&gt;Spring.Web&lt;/li&gt;
+&lt;li class=&quot;newslist&quot;&gt;...and more!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This packaging approach will permit users to download and consume the components of the overall Spring.NET Framework as they need them, increasing the granularity of our distribution process for those that wish to download the Spring.NET Framework incrementally rather than all at once.&lt;/p&gt;
+&lt;p&gt;As always, &lt;a href=&quot;http://www.springframework.net/download.html&quot; target=&quot;_new&quot;&gt;the complete Spring.NET Framework download(s)&lt;/a&gt; will continue to be made available for those that prefer the more comprehensive single-download of the complete release or aren&#039;t ready to adopt NuGet as a package manager as of yet.&lt;/p&gt;
+&lt;p&gt;Please direct all feedback you have from your experiences using these packages to &lt;a href=&quot;http://forum.springframework.net/&quot; target=&quot;_new&quot;&gt;the Spring.NET Community Forum&lt;/a&gt;.  We look forward to your feedback as we explore the benefits of this new additional method of distributing Spring.NET to the community.&lt;/p&gt;
+</description>
+ <comments>http://www.springsource.org/node/3085#comments</comments>
+ <category domain="http://www.springsource.org/taxonomy/term/4">News and Announcements</category>
+ <pubDate>Thu, 07 Apr 2011 16:10:43 +0000</pubDate>
+ <dc:creator>sbohlen</dc:creator>
+ <guid isPermaLink="false">3085 at http://www.springsource.org</guid>
+</item>
+<item>
+ <title>Spring Data Key Value (Redis + Riak) 1.0.0.M3 Released</title>
+ <link>http://www.springsource.org/node/3084</link>
+ <description>&lt;p&gt;Dear Spring Community,&lt;/p&gt;
+&lt;p&gt;I am pleased to announce the third milestone release of the Spring Data Key Value 1.0 project, with support for Redis and Riak, is now available!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.springsource.com/download/community?project=Spring%20Data&amp;amp;version=1.0.0.M3&quot;&gt;Downloads&lt;/a&gt; | &lt;a href=&quot;http://static.springsource.org/spring-data/data-keyvalue/docs/1.0.0.M3/api/&quot;&gt;JavaDocs&lt;/a&gt; | &lt;a href=&quot;http://static.springsource.org/spring-data/data-keyvalue/docs/1.0.0.M3/reference/html/&quot;&gt;Reference Documentation&lt;/a&gt; | &lt;a href=&quot;http://static.springframework.org/spring-data/data-keyvalue/docs/1.0.0.M3/changelog.txt&quot;&gt;Changelog&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This release introduces several new features for Redis, such as:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.springsource.org/node/3084&quot; target=&quot;_blank&quot;&gt;read more&lt;/a&gt;&lt;/p&gt;</description>
+ <category domain="http://www.springsource.org/taxonomy/term/4">News and Announcements</category>
+ <pubDate>Wed, 06 Apr 2011 15:34:17 +0000</pubDate>
+ <dc:creator>Costin Leau</dc:creator>
+ <guid isPermaLink="false">3084 at http://www.springsource.org</guid>
+</item>
+<item>
+ <title>This week in Spring: April 5th, 2011 </title>
+ <link>http://www.springsource.org/node/3083</link>
+ <description> 
+&lt;p&gt; This year is moving along at a very quick clip!  
+
+        
+
+ We&#039;ve already seen a torrent of new and exciting releases for Spring users and just today news of perhaps the most exciting thing yet went out. If you didn&#039;t get it because you aren&#039;t, for example, a registered SpringSource Tool Suite user, then here are the salient bits:
+
+&lt;/p&gt;
+
+&lt;P&gt;
+
+
+
+Next Tuesday - April 12th - VMware is hosting a webinar - &lt;a href=&quot;http://www.springsource.org/node/3082&quot;&gt;&quot;Spring into the cloud!&quot;&lt;/a&gt;  - with the provocative explanation, &quot;Spring has already simplified enterprise Java development. Next up is cloud development.&quot; 
+
+
+
+The webinar will be presented for both Europe and North America timezones.  See &lt;a href=&quot;http://www.springsource.org/node/3082&quot;&gt;this page&lt;/a&gt; for details, and &lt;a href=&quot;http://www.vmware.com/go/apr12&quot;&gt;don&#039;t forget to register!&lt;/a&gt; 
+
+  
+
+&lt;/p&gt;
+&lt;P&gt;
+
+Enough looking into the oh-so-exciting  future, let&#039;s look at the exciting stuff that&#039;s happened in the last week!
+
+ &lt;/p&gt; 
+
+ &lt;OL&gt; 
+
+ &lt;LI&gt; The Spring Data project&#039;s been hopping even more than usual this last week! First, an update to the Spring Data JDBC Extensions project, now at 1.0.0.M1, with specific support for the Oracle Database. The new release includes RAC &quot;Fast Connection Failover,&quot; Streams Advanced Queuing, native XML types, and a custom DataSource connection preparer. Lots of powerful features in a nice, easy-to-use package. 
+&lt;br /&gt; 
+See the  &lt;a href=&quot;http://www.springsource.org/node/3080&quot;&gt;release announcement&lt;/a&gt; and the  &lt;a href=&quot;http://www.springsource.org/spring-data&quot;&gt;project home page&lt;/a&gt; for more details.
+
+ &lt;/LI&gt; 
+
+  &lt;LI&gt; The Spring AMQP project has come a long way very quickly. The latest release marks the first RC (release candidate) leading up to 1.0 GA.  Spring AMQP is the Spring integration layer for Java clients and the AMQP protocol. Most people will use this with SpringSource&#039;s own  &lt;a href=&quot;http://www.rabbitmq.com/&quot;&gt;RabbitMQ message broker&lt;/a&gt;, the most popular, powerful message broker available today. 
+
+&lt;br/&gt;   
+
+Check out the &lt;a href=&quot;http://www.springsource.org/node/3079&quot;&gt;release announcement&lt;/a&gt; here, and check out the &lt;a href=&quot;http://www.springsource.org/spring-amqp&quot;&gt;project home page&lt;/a&gt; for more information.
+
+&lt;/LI&gt; 
+
+&lt;LI&gt; Speaking of AMQP, and highly scalable, cloud-friendly RabbitMQ deployments (wait, weren&#039;t we talking about that? Well, we should&#039;ve been! RabbitMQ is the most widely used Message broker - even in cloud environments like Amazon Web Services where there are numerous alternatives like Amazon&#039;s own SQS service), &lt;a href=&quot;http://blog.springsource.com/2011/04/01/routing-topologies-for-performance-and-scalability-with-rabbitmq/&quot;&gt;Helena Edelson wrote up a fantastic review&lt;/a&gt; of RabbitMQ topologies for performance and scalability.  
+
+The documentation has always been very good, but it can be difficult sometimes to pull together all the common idioms and patterns. This post provides the guided tour to scaling RabbitMQ that I certainly wish I&#039;d had a year ago! Definitely worth a read and a bookmark.  
+
+&lt;/LI&gt;
+
+&lt;LI&gt; 
+
+ Want a look at what&#039;s coming in Spring Integration? The nice part about open-source is you never need wonder for too long. In the Spring Integration project, adapters and extra modules start life in the &lt;em&gt;sandbox.&lt;/em&gt; Typically, these can be used with existing versions of Spring Integration, and don&#039;t always track the latest and greatest Spring Integration release. Two new modules that I&#039;ve really enjoyed working with the last few weeks? &lt;a href=&quot;http://git.springsource.org/spring-integration/sandbox/trees/0ca9b5ba70b9d80271064e6d387501812c22e689/spring-integration-mongodb&quot;&gt;Spring Integration MongoDB&lt;/a&gt; and &lt;a href=&quot;http://git.springsource.org/spring-integration/sandbox/trees/0ca9b5ba70b9d80271064e6d387501812c22e689/spring-integration-redis&quot;&gt;Spring Integration Redis.&lt;/a&gt; These two modules allow you to make use of these heavy hitting choices in the NoSQL space in a way that&#039;s both practical and convenient, as an add-on to your existing Spring Integration solution. They both support message storage using the backend store, and the Redis one also provides Spring Integration-based publish/subscribe support on top of Redis&#039; built-in messaging support! While you&#039;re there, create an account and create project clones and feedback if you see anything unaccounted for in your requirements. The MongoDB and Redis support also dovetail nicely with the &lt;a href=&quot;http://git.springsource.org/spring-integration/sandbox/trees/0ca9b5ba70b9d80271064e6d387501812c22e689/spring-integration-gemfire&quot;&gt;Spring Integration GemFire support&lt;/a&gt;, and the &lt;a href=&quot;http://git.springsource.org/spring-integration/sandbox/trees/0ca9b5ba70b9d80271064e6d387501812c22e689/spring-integration-amqp&quot;&gt;Spring Integration AMQP&lt;/a&gt; support. These options give your applications all the flexibility and performance they need to meet even the most demanding of requirements, on your desktop or in the cloud or beyond! 
+
+&lt;/LI&gt;
+
+&lt;LI&gt; 
+
+The Spring Data Graph project&#039;s support for Neo4j has just been updated to version 1.0.0.RC1. The new version includes a reworked API for queries (replacing finders with  composable spring-data-commons repositories), new REST-client support for Neo4J-REST,  numerous performance improvements, updates to the &lt;code&gt;Neo4jTemplate&lt;/code&gt;, documentation updates and small top level API refactorings. 
+
+&lt;br /&gt;   
+Check it out and read the full release announcement &lt;a href=&quot;http://www.springsource.org/node/3081&quot;&gt;here&lt;/a&gt; and don&#039;t forget to register for the &lt;a href=&quot;http://www.springsource.com/newsevents/webinars&quot;&gt;upcoming webinar&lt;/a&gt;. 
+
+&lt;/LI&gt;   
+&lt;li&gt; Matt Raible recently updated some of his AppFuse wiki entry on using Spring MVC to reflect the latest releases of Spring and AppFuse itself. Check it out for an updated &lt;a href=&quot;http://appfuse.org/display/APF/Using+Spring+MVC&quot;&gt;oldie-but-a-goodie!&lt;/a&gt; 
+&lt;/li&gt;
+
+&lt;li&gt;  
+
+Sivaprasadreddy Katamreddy has published a blog on &lt;a href=&quot;http://java.dzone.com/articles/springmvc3-hibernate-crud&quot;&gt;using Spring MVC 3 and Hibernate to build a CRUD Sample Application&lt;/a&gt;.  The blog post goes to great lengths and presents every code artifact in detail, including the SQL statements and JPA entity classes! Nice work, and a useful guide for those looking to get started. Readers may also appreciate the Green Beans post, &lt;a href=&quot;http://blog.springsource.com/2011/01/07/green-beans-getting-started-with-spring-in-your-service-tier/&quot;&gt;&quot;Getting Started with Spring in your Service Tier,&quot;&lt;/a&gt; which speaks to some of the same goals as this excellent post. 
+
+&lt;/li&gt;
+
+
+
+&lt;/OL&gt;</description>
+ <comments>http://www.springsource.org/node/3083#comments</comments>
+ <category domain="http://www.springsource.org/taxonomy/term/4">News and Announcements</category>
+ <pubDate>Wed, 06 Apr 2011 00:41:36 +0000</pubDate>
+ <dc:creator>Josh Long</dc:creator>
+ <guid isPermaLink="false">3083 at http://www.springsource.org</guid>
+</item>
+<item>
+ <title>Spring into the Cloud Web Event</title>
+ <link>http://www.springsource.org/node/3082</link>
+ <description>&lt;div class=&quot;event-nodeapi&quot;&gt;
+  &lt;div class=&quot;event-start dtstart&quot; title=&quot;2011-04-12T16:00:00Z&quot;&gt;&lt;label&gt;Start:  &lt;/label&gt; 2011-04-12 09:00 &lt;/div&gt;
+&lt;/div&gt;
+  &lt;div class=&quot;event-nodeapi&quot;&gt;
+    &lt;div class=&quot;event-end dtend&quot; title=&quot;2011-04-12T17:30:00Z&quot;&gt;&lt;label&gt;End: &lt;/label&gt; 2011-04-12 10:30 &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;div class=&quot;event-nodeapi&quot;&gt;
+   &lt;div class=&quot;event-tz&quot;&gt;&lt;label&gt;Timezone: &lt;/label&gt;US/Pacific &lt;/div&gt;
+  &lt;/div&gt;
+&lt;div class=&quot;event-nodeapi&quot;&gt;
+  &lt;div class=&quot;event-start dtstart&quot; title=&quot;2011-04-12T16:00:00Z&quot;&gt;&lt;label&gt;Start:  &lt;/label&gt; 2011-04-12 09:00 &lt;/div&gt;
+&lt;/div&gt;
+  &lt;div class=&quot;event-nodeapi&quot;&gt;
+    &lt;div class=&quot;event-end dtend&quot; title=&quot;2011-04-12T17:30:00Z&quot;&gt;&lt;label&gt;End: &lt;/label&gt; 2011-04-12 10:30 &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;div class=&quot;event-nodeapi&quot;&gt;
+   &lt;div class=&quot;event-tz&quot;&gt;&lt;label&gt;Timezone: &lt;/label&gt;US/Pacific &lt;/div&gt;
+  &lt;/div&gt;
+&lt;p&gt;Join &lt;a href=&quot;http://blog.springsource.com/author/rodj/&quot;&gt;Rod Johnson&lt;/a&gt; and other industry leaders for an exciting announcement for cloud developers. On April 12th, you are invited to attend a special live webcast. Spring has already simplified enterprise Java development. Next up is cloud development.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.vmware.com/go/apr12&quot;&gt;Sign up to attend this webcast&lt;/a&gt; and learn how you can take the next step in cloud application development.&lt;/p&gt;
+&lt;p&gt;North American Audiences&lt;br /&gt;
+9:00 a.m. Pacific Daylight (San Francisco, GMT-07:00)&lt;br /&gt;
+12:00 p.m. Eastern Daylight (New York, GMT-04:00) &lt;/p&gt;
+&lt;p&gt;European Audiences&lt;br /&gt;
+5:00 p.m. Western European Summer (London, GMT+1:00)&lt;br /&gt;
+6:00 p.m. Europe Summer (Paris, GMT+02:00)&lt;/p&gt;
+</description>
+ <comments>http://www.springsource.org/node/3082#comments</comments>
+ <pubDate>Tue, 05 Apr 2011 20:59:24 +0000</pubDate>
+ <dc:creator>Adam Fitzgerald</dc:creator>
+ <guid isPermaLink="false">3082 at http://www.springsource.org</guid>
+</item>
+<item>
+ <title>Spring Data Graph - Neo4j Support 1.0.0.RC1 Released</title>
+ <link>http://www.springsource.org/node/3081</link>
+ <description>&lt;p&gt;Dear Spring Community,&lt;/p&gt;
+&lt;p&gt;We are pleased to announce that the first release candidate (1.0.0.RC1) of the Spring Data Graph 1.0 project with Neo4j support is now available!&lt;/p&gt;
+&lt;p&gt;The primary goal of the &lt;b&gt;Spring Data&lt;/B&gt; project is to make it easier to build Spring-powered applications that use new data access technologies such as non-relational databases, map-reduce frameworks, and cloud based data services.&lt;/p&gt;
+&lt;p&gt;The Graph Neo4j module provides integration with the &lt;a href=&quot;http://neo4j.org&quot;&gt;Neo4j&lt;/a&gt; graph database.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.springsource.com/download/community?project=Spring%20Data&amp;amp;version=1.0.0.RC1&quot;&gt;Downloads&lt;/a&gt; | &lt;a href=&quot;http://static.springsource.org/spring-data/data-graph/docs/1.0.0.RC1/api/&quot;&gt;JavaDocs&lt;/a&gt; | &lt;a href=&quot;http://static.springsource.org/spring-data/data-graph/docs/1.0.0.RC1/reference/html/&quot;&gt;Reference Documentation&lt;/a&gt; | &lt;a href=&quot;http://static.springframework.org/spring-data/data-graph/docs/1.0.0.RC1/changelog.txt&quot;&gt;Changelog&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To learn more about the project, visit the Spring Data &lt;a href=&quot;http://www.springsource.org/spring-data&quot;&gt;Homepage&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;The new features in Spring Data Graph 1.0.0.RC1 include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;replaced finders with composable spring-data-commons repositories&lt;/li&gt;
+&lt;li&gt;added rest-client support for consuming Neo4j-REST server with Spring Data Graph&lt;/li&gt;
+&lt;li&gt;re-added OSGi bundlor metainformation&lt;/li&gt;
+&lt;li&gt;relationship entity creation aligned to node entity creation&lt;/li&gt;
+&lt;li&gt;added TypeRepresentation Strategies for Relationships, enabling RelationshipEntity-Repositories&lt;/li&gt;
+&lt;li&gt;lots of performance improvements&lt;/li&gt;
+&lt;li&gt;fixed removal of relationship entities&lt;/li&gt;
+&lt;li&gt;added a GraphDatabase abstraction to be used with Neo4jTemplate&lt;/li&gt;
+&lt;li&gt;Neo4jTemplate API udpates&lt;/li&gt;
+&lt;li&gt;added aspect-introduced methods to NodeBacked and RelationshipBacked interfaces (with javadocs)&lt;/li&gt;
+&lt;li&gt;removed fullIndex annotation attribute&lt;/li&gt;
+&lt;li&gt;moved @Indexed annotation to org.springframework.data.graph.neo4j.annotation package&lt;/li&gt;
+&lt;li&gt;many documentation updates&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Looking forward to your feedback on the &lt;a href=&quot;http://forum.springsource.org/forumdisplay.php?f=80&quot;&gt;forum&lt;/a&gt; or in the &lt;a href=&quot;https://jira.springsource.org/browse/DATAGRAPH&quot;&gt;issue tracker&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Here is a &lt;a href=&quot;http://blog.neo4j.org/2011/04/spring-data-graph-100rc1-released.html&quot; target=&quot;_blank&quot;&gt;link&lt;/a&gt; to Michael Hunger&#039;s blog post on the Neo4j Blog.&lt;/p&gt;
+</description>
+ <comments>http://www.springsource.org/node/3081#comments</comments>
+ <category domain="http://www.springsource.org/taxonomy/term/4">News and Announcements</category>
+ <pubDate>Tue, 05 Apr 2011 18:16:48 +0000</pubDate>
+ <dc:creator>Thomas Risberg</dc:creator>
+ <guid isPermaLink="false">3081 at http://www.springsource.org</guid>
+</item>
+<item>
+ <title>Spring Data JDBC Extensions with Oracle Database Support 1.0.0.M1 Released</title>
+ <link>http://www.springsource.org/node/3080</link>
+ <description>&lt;p&gt;Dear Spring Community,&lt;/p&gt;
+&lt;p&gt;We are pleased to announce that the first milestone release (1.0.0.M1) of the Spring Data JDBC Extensions 1.0 project with Oracle Database support is now available!&lt;/p&gt;
+&lt;p&gt;The new Spring Data JDBC Extensions project was created to provide additional support for vendor specific JDBC extensions. The bulk of the support is made up of code ported from the SpringSource project &quot;Advanced Pack for Oracle Database&quot; that was available for support subscription customers. We are now making this code available to all Spring users and any new developments will be made in the Spring Data JDBC Extensions project.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.springsource.com/download/community?project=Spring%20Data&amp;amp;version=1.0.0.M1&quot;&gt;Downloads&lt;/a&gt; | &lt;a href=&quot;http://static.springsource.org/spring-data/data-jdbc/docs/1.0.0.M1/api/&quot;&gt;JavaDocs&lt;/a&gt; | &lt;a href=&quot;http://static.springsource.org/spring-data/data-jdbc/docs/1.0.0.M1/reference/html/&quot;&gt;Reference Documentation&lt;/a&gt; | &lt;a href=&quot;http://static.springsource.org/spring-data/data-jdbc/docs/1.0.0.M1/changelog.txt&quot;&gt;Changelog&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To learn more about the project, visit the Spring Data &lt;a href=&quot;http://www.springsource.org/spring-data&quot;&gt;Homepage&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;The features in Spring Data JDBC Extensions 1.0.0.M1 include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;b&gt;General&lt;/b&gt;&lt;/p&gt;
+&lt;li&gt;Ported all current features from SpringSource Advance Pack for Oracle Database v 1.1.0
+&lt;ul&gt;
+&lt;li&gt;RAC &quot;Fast Connection Failover&quot;
+&lt;p&gt;The RAC &quot;Fast Connection Failover&quot; provides the ability to have a Spring application&lt;br /&gt;
+    transparently failover when a database node fails.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;Streams AQ (Advanced Queueing)
+&lt;p&gt;The AQ support provides the option of using a single local transaction manager for both&lt;br /&gt;
+    database and message access without resorting to expensive distributed 2-phase commit&lt;br /&gt;
+    transaction management.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;XML Types
+&lt;p&gt;Custom classes, examples and documentation on how to use Oracle JDBC extensions for&lt;br /&gt;
+    their native XML Type.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;Advanced Data Types
+&lt;p&gt;Custom classes, examples and documentation on how to use Oracle JDBC extensions for their&lt;br /&gt;
+    advanced data types like STRUCT and ARRAY.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;Custom DataSource Connection Preparer
+&lt;p&gt;This feature provides an API for customizing the connection environment with Oracle specific&lt;br /&gt;
+    session settings etc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;p&gt;&lt;b&gt;Streams AQ&lt;/b&gt;&lt;/p&gt;
+&lt;li&gt;DATAJDBC-4 added an attribute to specify &#039;connection-factory-type&#039; for &lt;aq-jms-connection-factory&gt; entries&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Looking forward to your feedback on the &lt;a href=&quot;http://forum.springsource.org/forumdisplay.php?f=27&quot;&gt;forum&lt;/a&gt; or in the &lt;a href=&quot;https://jira.springsource.org/browse/DATAJDBC&quot;&gt;issue tracker&lt;/a&gt;.&lt;/p&gt;
+</description>
+ <comments>http://www.springsource.org/node/3080#comments</comments>
+ <category domain="http://www.springsource.org/taxonomy/term/4">News and Announcements</category>
+ <pubDate>Fri, 01 Apr 2011 19:16:50 +0000</pubDate>
+ <dc:creator>Thomas Risberg</dc:creator>
+ <guid isPermaLink="false">3080 at http://www.springsource.org</guid>
+</item>
+<item>
+ <title>Spring AMQP 1.0 Release Candidate 1</title>
+ <link>http://www.springsource.org/node/3079</link>
+ <description>&lt;p&gt;We are pleased to announce that Spring AMQP 1.0 for Java RC1 is now available!&lt;br /&gt;
+&lt;a target=&quot;_blank&quot; href=&quot;https://jira.springsource.org/secure/ReleaseNote.jspa?projectId=10450&amp;amp;version=11821&quot;&gt;Release Notes&lt;/a&gt; | &lt;a target=&quot;_blank&quot; href=&quot;http://www.springsource.com/download/community?project=Spring%20AMQP&quot;&gt;Download&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The JARs are available in the SpringSource Milestone Maven repository.&lt;/p&gt;
+&lt;p&gt;As always, all other resource links (reference manual, javadoc, forum, etc.) are available on the &lt;a target=&quot;_blank&quot; href=&quot;http://www.springsource.org/spring-amqp&quot;&gt;Spring AMQP Homepage&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Please try it out! We&#039;d like to get as much feedback as possible as we drive toward GA.&lt;/p&gt;
+&lt;p&gt;Cheers,&lt;br /&gt;
+the Spring AMQP team&lt;/p&gt;
+</description>
+ <pubDate>Fri, 01 Apr 2011 18:21:20 +0000</pubDate>
+ <dc:creator>Mark Fisher</dc:creator>
+ <guid isPermaLink="false">3079 at http://www.springsource.org</guid>
+</item>
+</channel>
+</rss>

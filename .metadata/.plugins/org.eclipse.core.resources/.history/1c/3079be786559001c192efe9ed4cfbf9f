@@ -1,0 +1,47 @@
+package org.strotmann.util;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.ResourceBundle;
+
+import javax.faces.model.SelectItem;
+
+public class Auswahl {
+	
+	private static List aemter;
+	private static ResourceBundle amtProps = ResourceBundle.getBundle("Amt");
+	    
+	static {
+		aemter = new ArrayList();
+		Enumeration<String > keys = amtProps.getKeys();
+		while (keys.hasMoreElements()) {
+			String key = (String) keys.nextElement();
+			aemter.add(new SelectItem(Short.parseShort(key), amtProps.getString(key)));
+		}
+	}
+
+	public List getAemter() {
+		Comparator comparator = new ShortComparator() ;
+		Collections.sort (aemter, comparator);
+		return aemter;
+	}
+
+	public void setAemter(List aemter) {
+		Auswahl.aemter = aemter;
+	}
+	
+	class ShortComparator implements Comparator {
+		public int compare(Object o1, Object o2) {
+			SelectItem s1 = (SelectItem) o1;
+			SelectItem s2 = (SelectItem) o2;
+			if ((Short)s1.getValue() < (Short)s2.getValue()) 
+				return -1;
+			else
+				return 1;
+		}
+	}
+
+}

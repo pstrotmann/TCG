@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="javax.faces.model.SelectItem"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.db4o.ObjectSet"/>
+<fullyQualifiedTypeName name="javax.faces.component.UIComponent"/>
+<fullyQualifiedTypeName name="javax.faces.component.UIForm"/>
+<fullyQualifiedTypeName name="javax.faces.event.ActionListener"/>
+<fullyQualifiedTypeName name="org.apache.myfaces.config.element.MapEntry"/>
+<fullyQualifiedTypeName name="org.strotmann.tcg.MitgliedPersisterDB4O"/>
+<fullyQualifiedTypeName name="javax.faces.component.html.HtmlCommandLink"/>
+<fullyQualifiedTypeName name="org.strotmann.tcg.Mitglied"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="org.apache.myfaces.component.html.ext.HtmlCommandButton"/>
+<fullyQualifiedTypeName name="org.strotmann.tcg.MitgliederImporter"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="org.strotmann.tcg.MitgliedPersister"/>
+<fullyQualifiedTypeName name="org.strotmann.tcg.MitgliedPersisterDB4Objects"/>
+<fullyQualifiedTypeName name="org.strotmann.tcg.EmailImporter"/>
+<fullyQualifiedTypeName name="java.util.Map.Entry"/>
+<fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.HSSFRichTextString"/>
+<fullyQualifiedTypeName name="org.strotmann.tcg.ExcelExporter"/>
+<fullyQualifiedTypeName name="com.sun.jmx.snmp.Enumerated"/>
+<fullyQualifiedTypeName name="java.util.Enumeration"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="javax.mail.internet.InternetAddress"/>
+<fullyQualifiedTypeName name="javax.activation.DataSource"/>
+<fullyQualifiedTypeName name="com.db4o.query.Query"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="com.db4o.ObjectContainer"/>
+<fullyQualifiedTypeName name="org.apache.commons.io.FileUtils"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="javax.faces.context.FacesContext"/>
+<fullyQualifiedTypeName name="java.text.DateFormat"/>
+<fullyQualifiedTypeName name="org.apache.commons.validator.routines.RegexValidator"/>
+<fullyQualifiedTypeName name="org.apache.commons.lang.StringUtils"/>
+<fullyQualifiedTypeName name="org.apache.commons.validator.routines.checkdigit.IBANCheckDigit"/>
+<fullyQualifiedTypeName name="org.apache.commons.validator.routines.checkdigit.CheckDigitException"/>
+</qualifiedTypeNameHistroy>

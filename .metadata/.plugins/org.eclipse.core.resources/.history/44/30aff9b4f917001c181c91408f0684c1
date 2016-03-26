@@ -1,0 +1,56 @@
+<%@ page contentType="text/html; charset=Cp1252" %>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Cp1252"/>
+		<title>TCG</title>
+	</head>
+	<body>
+		<f:view>
+			<h1>
+      			<h:outputText value="Mitgliederliste"/>
+     		</h1>
+			
+			<h:form id="form1">
+			
+				<t:dataTable
+				 var="mitglied"
+				 value="#{mgr.mitgliederListe}"					
+				>
+				
+				<h:column>
+	               <h:outputText value="#{mitglied.vorname}" />
+	            </h:column>
+	            <h:column>
+	               <h:outputText value="#{mitglied.zuname}" />
+	            </h:column>
+	            <h:column>
+	               <h:outputText value="#{mitglied.geschlecht}" />
+	            </h:column>
+	            <h:column>
+	               <h:outputText value="#{mitglied.geburtsdatum}" />
+	            </h:column>
+	            <h:column>
+	               <h:outputText value="#{mitglied.email}" />
+	            </h:column>
+	            
+	            <h:column>
+	            	<h:commandLink
+	            		 actionListener="#{mActListener.processAction}"
+	            		 value="#{mitglied.mitgliedId}"
+	            		 action="#{mgr.selectAction}"
+	            		  >	            		
+	            	</h:commandLink>
+				</h:column>
+				</t:dataTable>
+				
+				<br/><h:commandButton value="Neu" action="#{mgr.listAction}" />
+				
+			</h:form>
+		</f:view>
+	</body>
+</html>
+

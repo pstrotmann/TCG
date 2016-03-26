@@ -1,0 +1,66 @@
+<%@ page contentType="text/html; charset=Cp1252" %>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Cp1252"/>
+		<title>TCG</title>
+	</head>
+	<body>
+		<f:view>
+			<h1>
+      			<h:outputText value="Partnererfassung"/>
+     		</h1>
+			
+			<h:form id="form1">
+				
+				<t:messages id="messageList" styleClass="error" summaryFormat="{0} in {1}" />
+
+				<h:panelGrid columns="3">
+						
+						
+						<h:outputLabel for="form1:mitgliedId" value=""/>
+						<h:inputHidden id="mitgliedId" value="#{mitglied.mitgliedId}" />
+						<h:message for="form1:mitgliedId" styleClass="error" /> 
+						
+						<h:outputLabel for="form1:vorname" value="Vorname:"/>
+						<h:inputText id="vorname" value="#{mitglied.vorname}" required="true"/>	
+						<h:message for="form1:vorname" styleClass="error" />						
+						
+						<h:outputLabel for="form1:zuname" value="Zuname:"/>
+						<h:inputText id="zuname" value="#{mitglied.zuname}" required="true" />
+						<h:message for="form1:zuname" styleClass="error" />							
+						 
+						<h:outputLabel for="form1:geschlecht" value="Geschlecht:"/>
+						<h:selectOneMenu id="geschlecht" value="#{mitglied.geschlecht}">
+		                    <f:selectItem itemValue="#{1}" itemLabel="männlich" />
+		                    <f:selectItem itemValue="#{2}" itemLabel="weiblich" />
+		            	</h:selectOneMenu>
+						<h:message for="form1:geschlecht" styleClass="error" />							
+						 
+						<h:outputLabel for="form1:geburtsdatum" value="Geburtsdatum:"/>
+						<h:inputText id="geburtsdatum" value="#{mitglied.geburtsdatum}" size="10" required="true"/>
+						<h:message for="form1:geburtsdatum" styleClass="error" />
+						
+						<h:outputLabel for="form1:email" value="eMail:"/>
+						<h:inputText id="email" value="#{mitglied.email}" size="30" required="false">
+							<t:validateEmail/>
+						</h:inputText>
+						<h:message for="form1:email" styleClass="error" />
+					
+				</h:panelGrid>
+				
+				<br/>
+				<h:commandButton id="store" value="Neuanlage" action="#{mitglied.storeAction}"></h:commandButton>
+				<br/>
+				<h:commandButton id="upd" value="Änderung" action="#{mitglied.updAction}"></h:commandButton>
+				<br/>
+				<h:commandButton id="home" value="Zurück" action="#{mgr.homeAction}" immediate="true" ></h:commandButton>
+				
+			</h:form>
+		</f:view>
+	</body>
+</html>
+

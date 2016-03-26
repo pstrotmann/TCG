@@ -1,0 +1,40 @@
+10
+
+dir
+58
+file:///opt/svnRepos/tcg/TCG/WebRoot/WEB-INF/src/org/strotmann
+file:///opt/svnRepos/tcg
+
+
+
+2009-11-26T19:30:25.298000Z
+58
+peter
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+b407d1c7-d9ea-414f-9f43-55c6a83b8353
+
+db
+dir
+
+mail
+dir
+
+tcg
+dir
+
+util
+dir
+

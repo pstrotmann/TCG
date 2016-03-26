@@ -1,0 +1,112 @@
+<%@ page contentType="text/html; charset=Cp1252" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Cp1252"/>
+		<title>TCG</title>
+	</head>
+	<body>
+		<f:view>
+			<h1>
+      			<h:outputText value="Mitgliederliste"/>
+     		</h1>
+			
+			<h:form id="form1" title="Mitgliederliste">
+			
+				<t:dataTable
+				 headerClass="standardTable_Header"
+				 var="mitglied"
+				 value="#{mgr.mitgliederListe}"	
+				 sortColumn="#{mgr.sort}"
+                 sortAscending="#{mgr.ascending}"
+				 bgcolor="gray"
+				 border="3"
+				>
+				
+				<h:column>
+				   <f:facet name="header">
+				    <t:commandSortHeader columnName="vorname">
+				     <h:outputText value="Vorname" />
+				    </t:commandSortHeader> 
+				   </f:facet>
+	               <h:outputText value="#{mitglied.vorname}" />
+	            </h:column>
+	            <h:column>
+	               <f:facet name="header">
+	                <t:commandSortHeader columnName="zuname">
+	                 <h:outputText value="Zuname" />
+	                </t:commandSortHeader>
+				   </f:facet>	
+	               <h:outputText value="#{mitglied.zuname}" />
+	            </h:column>
+	            <h:column>
+	               <f:facet name="header">
+				   	<h:outputText value="Geschlecht" />
+				   </f:facet>
+				   <h:outputText value="#{mitglied.gesch}" />
+	            </h:column>
+	            <h:column>
+	               <f:facet name="header">
+				   	<t:commandSortHeader columnName="geburtsdatum">
+	                 <h:outputText value="Geburtsdatum" />
+	                </t:commandSortHeader>
+				   </f:facet>
+	               <h:outputText value="#{mitglied.geburtsdatum}" converter="datumConverter"/>
+	            </h:column>
+	            <h:column>
+	               <f:facet name="header">
+				   	<t:commandSortHeader columnName="eintrittsdatum">
+	                 <h:outputText value="Eintrittsdatum" />
+	                </t:commandSortHeader>
+				   </f:facet>
+	               <h:outputText value="#{mitglied.eintrittsdatum}" converter="datumConverter"/>
+	            </h:column>
+	            <h:column>
+	               <f:facet name="header">
+	                <t:commandSortHeader columnName="austrittsdatum">
+	                 <h:outputText value="Austrittsdatum" />
+	                </t:commandSortHeader>
+				   </f:facet>
+	               <h:outputText value="#{mitglied.austrittsdatum}" converter="datumConverter"/>
+	            </h:column>
+	            <h:column>
+	               <f:facet name="header">
+				   	<t:commandSortHeader columnName="email">
+	                 <h:outputText value="eMail" />
+	                </t:commandSortHeader>
+				   </f:facet>
+	               <h:outputText value="#{mitglied.email}" />
+	            </h:column>
+	            <h:column>
+	               <f:facet name="header">
+				   	<t:commandSortHeader columnName="status">
+	                 <h:outputText value="Status" />
+	                </t:commandSortHeader>
+				   </f:facet>
+	               <h:outputText value="#{mitglied.stat}" />
+	            </h:column>
+	            
+	            <h:column>
+	            	<h:commandLink value="#{mitglied.mitgliedId}" actionListener="#{mgr.getMitgliedAction}" action="#{mgr.selectAction}" >
+	            	 <f:param name="mitgliedId" id="mitgliedId"  value="#{mitglied.mitgliedId}" />	              		
+	            	</h:commandLink>
+				</h:column>
+				
+				</t:dataTable>
+				
+				<br/>
+				<h:outputText id="nachricht" value="#{mgr.erfNachricht}"/>
+				<br/>
+				
+				<br/><h:commandButton value="Neu" action="#{mgr.neuAction}" title="Neuanlage eines Mitgliedes"/>
+				<br/><h:commandButton value="Übernahme" action="#{mgr.ImportAction}" title="Übernahme aus Altbestand"/>
+				
+			</h:form>
+		</f:view>
+	</body>
+</html>
+

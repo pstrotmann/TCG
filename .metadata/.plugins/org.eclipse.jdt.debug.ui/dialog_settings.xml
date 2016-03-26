@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="170" key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth0"/>
+	<item value="1" key="org.eclipse.jdt.debug.ui.jre_preference_page_context.sortColumn"/>
+	<item value="208" key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth1"/>
+	<item value="169" key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth2"/>
+	<section name="org.eclipse.jdt.debug.ui.MAIN_METHOD_SELECTION_DIALOG">
+		<item value="true" key="ShowStatusLine"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode&gt;=TCG/service&amp;lt;service{CheckDB.java[CheckDB&lt;/infoNode&gt;&#x0A;&lt;infoNode&gt;=TCG/service&amp;lt;service{CheckDta.java[CheckDta&lt;/infoNode&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;" key="History"/>
+		<section name="DialogBoundsSettings">
+			<item value="464" key="DIALOG_WIDTH"/>
+			<item value="70" key="DIALOG_Y_ORIGIN"/>
+			<item value="843" key="DIALOG_HEIGHT"/>
+			<item value="153" key="DIALOG_X_ORIGIN"/>
+			<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		</section>
+	</section>
+	<section name="ADD_VM_DIALOG_SECTION">
+		<item value="615" key="DIALOG_WIDTH"/>
+		<item value="10" key="DIALOG_Y_ORIGIN"/>
+		<item value="123" key="DIALOG_X_ORIGIN"/>
+		<item value="464" key="DIALOG_HEIGHT"/>
+		<item value="1|Sans Serif|9|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+</section>

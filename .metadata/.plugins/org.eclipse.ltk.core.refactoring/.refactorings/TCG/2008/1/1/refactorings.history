@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;/TCG/WebRoot/images/tutorials48.gif&apos; to &apos;nurHaken.gif&apos;&#x0A;- Original project: &apos;TCG&apos;&#x0A;- Original element: &apos;tutorials48.gif&apos;" description="Rename resource &apos;tutorials48.gif&apos;" flags="7" id="org.eclipse.jdt.ui.rename.resource" input="WebRoot/images/tutorials48.gif" name="nurHaken.gif" stamp="1199202585520" version="1.0"/>
+</session>

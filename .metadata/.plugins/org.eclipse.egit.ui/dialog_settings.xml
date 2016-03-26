@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="717" key="DIALOG_WIDTH"/>
+	<item value="132" key="DIALOG_Y_ORIGIN"/>
+	<item value="0" key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel"/>
+	<item value="573" key="DIALOG_HEIGHT"/>
+	<item value="255" key="DIALOG_X_ORIGIN"/>
+	<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	<item value="true" key="CommitDialog.showUntracked"/>
+	<list key="CommitDialog.authorValues">
+		<item value="pstrotmann &lt;peter@strotmann.org&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="Peter Strotmann &lt;peter@strotmann.org&gt;"/>
+	</list>
+	<section name="GitImportWizard">
+	</section>
+	<section name="org.eclipse.egit.ui.internal.dialogs.MergeTargetSelectionDialog.dialogBounds">
+		<item value="613" key="DIALOG_WIDTH"/>
+		<item value="26" key="DIALOG_Y_ORIGIN"/>
+		<item value="733" key="DIALOG_HEIGHT"/>
+		<item value="310" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+	</section>
+	<section name="org.eclipse.egit.ui.COMMIT_DIALOG_SECTION">
+		<item value="632" key="DIALOG_WIDTH"/>
+		<item value="76" key="DIALOG_Y_ORIGIN"/>
+		<item value="658" key="DIALOG_HEIGHT"/>
+		<item value="300" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.fetch.FetchResultDialog.dialogBounds">
+		<item value="613" key="DIALOG_WIDTH"/>
+		<item value="208" key="DIALOG_Y_ORIGIN"/>
+		<item value="483" key="DIALOG_HEIGHT"/>
+		<item value="313" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.dialogs.CheckoutDialog.dialogBounds">
+		<item value="613" key="DIALOG_WIDTH"/>
+		<item value="188" key="DIALOG_Y_ORIGIN"/>
+		<item value="489" key="DIALOG_HEIGHT"/>
+		<item value="310" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+</section>

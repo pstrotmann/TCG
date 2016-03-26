@@ -1,0 +1,7 @@
+#Thu Jan 29 20:41:54 CET 2009
+SERVER_ENABLEMENT=true
+eclipse.preferences.version=1
+TOMCAT_BASE=/opt/apache-tomcat-6.0.18
+TOMCAT_HOME=/opt/apache-tomcat-6.0.18
+JDK_INSTALLATION_NAME=java-6-sun-1.6.0.03
+TOMCAT_TEMP=/opt/apache-tomcat-6.0.18/temp

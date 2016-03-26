@@ -1,0 +1,392 @@
+package org.strotmann.tcg;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.component.UIInput;
+import javax.faces.component.html.HtmlCommandButton;
+import javax.faces.context.FacesContext;
+import javax.faces.event.AbortProcessingException;
+import javax.faces.event.ActionEvent;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+
+import org.apache.myfaces.custom.fileupload.UploadedFile;
+import org.strotmann.mail.MailSender;
+
+public class MitgliedManager 
+{
+	private long mitgliedId;
+	private Mitglied mitglied;
+	private MitgliedSucher mitgliedSucher;
+	private List <Mitglied> mitgliederListe;
+	private List <Mitglied> mailEmpfaengerListe;
+	private MitgliedPersister mitgliedPersister;
+	private String erfNachricht;
+	private String _sort;
+    private boolean _ascending;
+    private String upFileName;
+    private UploadedFile upFile;
+    private String betreff;
+    private String mailText;
+	
+	public String getBetreff() {
+		return betreff;
+	}
+
+	public String getMailText() {
+		return mailText;
+	}
+
+	public void setBetreff(String betreff) {
+		this.betreff = betreff;
+	}
+
+	public void setMailText(String mailText) {
+		this.mailText = mailText;
+	}
+
+	public boolean isAscending() {
+		return _ascending;
+	}
+
+	public void setAscending(boolean _ascending) {
+		this._ascending = _ascending;
+	}
+
+	public String getSort() {
+		return _sort;
+	}
+
+	public void setSort(String _sort) {
+		this._sort = _sort;
+	}
+
+	public String homeAction() {
+        
+        return "Erfolg";
+    }
+	
+	public void getMitgliedAction(ActionEvent e) throws AbortProcessingException {
+		HtmlCommandButton h = (HtmlCommandButton)e.getSource();
+		long mId = (Long)h.getValue();
+		this.mitglied = mitgliedPersister.readMitglied(mId);
+	}
+	
+	public void getSucherAction(ActionEvent e) throws AbortProcessingException {
+		HtmlCommandButton h = (HtmlCommandButton)e.getSource();
+		this.mitgliedSucher = (MitgliedSucher)h.getValue();
+	}
+	
+	public String UebernahmeAction() {
+		this.erfNachricht = "Übernahme der Daten erfolgreich";
+		new MitgliederImporter().importiere();
+		return "Uebernahme";
+    }
+	
+	public String uebernahmeEmailAction() {
+		this.erfNachricht = "Übernahme der eMail-Adressen erfolgreich";
+		new EmailImporter().importiere();
+		return "Uebernahme";
+    }
+	
+	public String selectAction() {
+		this.erfNachricht = "";
+		return "Ändern";
+    }
+	
+	public String beitraegeAction() {
+		this.erfNachricht = "";
+		return "Beitraege";
+    }
+	
+	public String adressenAction() {
+		this.erfNachricht = "";
+		return "Adressen";
+    }
+	
+	public String mailsAction() {
+		this.erfNachricht = "";
+		return "Mails";
+    }
+	
+	public String sendeAction() {
+		this.erfNachricht = "";
+		MailSender mailSender = new MailSender();
+		ArrayList<InternetAddress> mailAdressen = new ArrayList <InternetAddress> ();
+		
+		for (Mitglied mitglied : this.mailEmpfaengerListe) {
+			try {
+				mailAdressen.add(new InternetAddress(mitglied.getEmail()));
+			} catch (AddressException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		InternetAddress[] internetAddressen = (InternetAddress[])mailAdressen.toArray();
+		
+		mailSender.send(internetAddressen, this.betreff, this.mailText);
+		return "Erfolg";
+    }
+	
+	public String neuAction() {
+		
+		this.mitglied = new Mitglied();
+		this.erfNachricht = "";
+        return "Neu";
+    }
+	
+	public String suchAction() {
+        return "Suchen";
+    }
+	
+	public String storeAction() {
+		
+		Date d1 = this.mitglied.getGeburtsdatum();
+		Date d2 = this.mitglied.getEintrittsdatum();
+		Date d3 = this.mitglied.getAustrittsdatum();
+		
+		if (compare (d1, d2) <= 0 && compare (d2, d3) <= 0) {
+			mitgliedPersister.store(this.mitglied);
+			this.erfNachricht = "Erfassung erfolgreich: "+this.mitglied.getVorname()+" "+this.mitglied.getZuname();
+	        return "Erfolg";
+		}
+		else {
+			FacesContext context = FacesContext.getCurrentInstance();
+			if (compare (d1, d2) > 0) {
+				
+				UIInput gebDatIn = (UIInput) context.getViewRoot()
+						.findComponent("form1:geburtsdatum");
+				gebDatIn.setValid(false);
+				context.addMessage(gebDatIn.getClientId(context),
+						new FacesMessage(
+								"Geburtsdatum liegt nach Eintrittsdatum"));
+			}
+			if (compare (d2, d3) > 0) {
+				
+				UIInput einDatIn = (UIInput) context.getViewRoot()
+						.findComponent("form1:eintrittsdatum");
+				einDatIn.setValid(false);
+				context.addMessage(einDatIn.getClientId(context),
+						new FacesMessage(
+								"Eintrittsdatum liegt nach Austrittsdatum"));
+				
+			}
+			
+			this.erfNachricht = "Fehler bei der Querprüfung";
+			return "Fehler";
+		}
+    }
+	
+	public String deleteAction() {
+		mitgliedPersister.delete(this.mitglied);
+		this.erfNachricht = "Löschung erfolgreich: "+this.mitglied.getVorname()+" "+this.mitglied.getZuname();
+        return "Erfolg";
+	}
+	
+	public List<Mitglied> getMitgliederListe() {
+		
+		if (this.mitgliederListe == null)
+			this.mitgliederListe = new ArrayList();
+		else
+			this.mitgliederListe.clear();
+		if (this.mitgliedSucher ==  null)
+			this.mitgliedSucher = new MitgliedSucher();
+		List <Mitglied> liste;
+		liste = mitgliedPersister.readMitglieder();
+		for (Mitglied mitglied : liste) {
+			if (mitgliedSucher.matchVorname(mitglied.getVorname()) &
+				mitgliedSucher.matchZuname(mitglied.getZuname()) &
+				mitgliedSucher.matchGeschlecht(mitglied.getGeschlecht()) &
+				mitgliedSucher.matchGeburtsdatum(mitglied.getGeburtsdatum()) &
+				mitgliedSucher.matchEintrittsdatum(mitglied.getEintrittsdatum()) &
+				mitgliedSucher.matchAustrittsdatum(mitglied.getAustrittsdatum()) &
+				mitgliedSucher.matchStatus(mitglied.getStatus())
+				)
+				this.mitgliederListe.add(mitglied);
+		}
+        sort(getSort());
+		return this.mitgliederListe;
+	}
+	
+	public List<Mitglied> getBeitragsliste() {
+		
+		List <Mitglied> liste = new ArrayList();
+		
+		for (Mitglied mitglied : this.mitgliederListe) {
+			if (mitglied.getBeitragsklasse() > 0)
+				liste.add(mitglied);
+		}
+        
+		return liste;
+	}
+	
+	public List<Mitglied> getMailliste() {
+		
+		List <Mitglied> liste = new ArrayList();
+		
+		for (Mitglied mitglied : this.mitgliederListe) {
+			if (mitglied.getEmail() != null && mitglied.getEmail().length() > 0)
+				liste.add(mitglied);
+		}
+        
+		this.mailEmpfaengerListe = liste;
+		
+		return liste;
+	}
+
+	public long getMitgliedId() {
+		return this.mitgliedId;
+	}
+
+	public void setMitgliedId(long mitgliedId) {
+		this.mitgliedId = this.mitgliedPersister.getMitgliedId(this.mitglied);
+	}
+
+	public MitgliedManager() {
+		
+		this.mitglied = new Mitglied();
+		this.mitgliedPersister = new MitgliedPersisterDB4Objects();
+		this._ascending = true;
+		this._sort = "zuname";
+	}
+
+	public Mitglied getMitglied() {
+		return mitglied;
+	}
+
+	public void setMitglied(Mitglied mitglied) {
+		this.mitglied = mitglied;
+	}
+
+	public void sort(final String column)
+    {
+        if (mitgliederListe == null)
+        	return;
+		Comparator comparator = new mitgliedComparator(column) ;
+        Collections.sort(mitgliederListe , comparator);
+    }
+	
+	class mitgliedComparator implements Comparator {
+		
+		String column;
+		
+		mitgliedComparator (String column) {
+			this.column = column;
+		}
+		
+		public int compare(Object o1, Object o2)
+        {
+            Mitglied c1 = (Mitglied)o1;
+            Mitglied c2 = (Mitglied)o2;
+            if(column == null || o1 == null || o2 == null )
+                return 0;
+            if(column.equals("zuname"))
+                return c1.getZuname().compareTo(c2.getZuname()) ;
+            else
+        	if(column.equals("vorname"))
+                return c1.getVorname().compareTo(c2.getVorname()) ;
+            else
+        	if(column.equals("geschlecht"))
+                if (c1.getGeschlecht() == 1)
+                	return -1;
+                else
+                	return 1;
+            else
+        	if(column.equals("geburtsdatum"))
+                return c1.getGeburtsdatum().compareTo(c2.getGeburtsdatum()) ;
+            else
+        	if(column.equals("eintrittsdatum"))
+                return c1.getEintrittsdatum().compareTo(c2.getEintrittsdatum()) ;
+            else
+        	if(column.equals("status"))
+                if (c1.getStatus().equals("a"))
+                	return -1;
+                else
+                	return 1;
+            else
+        	if(column.equals("austrittsdatum"))
+        		if (c1.getAustrittsdatum() == null ) 
+					return 1;
+        		else
+        		if (c2.getAustrittsdatum() == null) 
+        			return -1;
+        		else
+        			return c1.getAustrittsdatum().compareTo(c2.getAustrittsdatum()) ;
+            else
+        	if(column.equals("email"))
+        		if (c1.getEmail()== null) 
+					return 1;
+        		else
+        		if (c2.getEmail() == null) 
+        			return -1;
+        		else
+        			return c1.getEmail().compareTo(c2.getEmail()) ;
+            else
+            return 0;
+        }
+	}
+	
+	public void valDatum(FacesContext context,
+			UIComponent toValidate, Object value) {
+		String m = "";
+		Date date = (Date)value;
+		m = valJahr (date);
+		
+		if (m.length() > 0) {
+			((UIInput)toValidate).setValid(false);
+			context.addMessage(toValidate.getClientId(context), new FacesMessage(m));
+		}
+	}
+	
+	private String valJahr (Date date) {
+		String message = "";
+		Date d = (Date) date;
+		Calendar c = Calendar.getInstance();
+		c.setTime(d);
+		int jjjj = c.get(Calendar.YEAR);
+		if (jjjj < 1900 || jjjj > 2100) {
+			message = "Jahr ungÃ¼ltig";
+		}
+		return message;
+	}
+	
+	private int compare (Date d1, Date d2) {
+		if (d1 == null || d2 == null) 
+			return 0;
+		else
+			return d1.compareTo(d2);
+	}
+
+	public String getErfNachricht() {
+		return erfNachricht;
+	}
+	
+	public String getAnzahlMitglieder () {
+		return "Anzahl "+this.getMitgliederListe().size();
+	}
+	
+	public UploadedFile getUpFile() {
+		return upFile;
+	}
+
+	public void setUpFile(UploadedFile upFile) {
+		this.upFile = upFile;
+	}
+
+	public String getUpFileName() {
+		return upFileName;
+	}
+
+	public void setUpFileName(String upFileName) {
+		this.upFileName = upFileName;
+	}
+	
+}

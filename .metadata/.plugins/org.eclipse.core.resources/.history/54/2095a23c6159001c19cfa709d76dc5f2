@@ -1,0 +1,27 @@
+package org.strotmann.util;
+
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
+import javax.faces.convert.ConverterException;
+
+public class ZahlungsartConverter implements Converter {
+
+	public Object getAsObject(FacesContext arg0, UIComponent arg1, String arg2)
+			throws ConverterException {
+		return null;
+	}
+
+	public String getAsString(FacesContext arg0, UIComponent arg1, Object arg2)
+			throws ConverterException {
+		if (arg2 == null) 
+			return null;
+
+		Long g = (Long)arg2;
+		if (g.intValue() == 1)
+			return ("Lastschrift");
+		else
+			return ("Überweisung");
+	}
+
+}

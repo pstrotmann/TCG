@@ -1,0 +1,13 @@
+package org.strotmann.tcg;
+
+import java.util.List;
+
+public interface MitgliedPersister {
+	
+	public void create (Mitglied mitglied);
+	
+	public List <Mitglied> readMitglieder ();
+	
+	public Mitglied readMitgliede (long l);
+
+}

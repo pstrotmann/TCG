@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<session version="1.0">
+<refactoring comment="Rename Java project 'TCG' to 'TCG-alt'&#10;- Original element: 'TCG'&#10;- Update references to refactored element" description="Rename Java project 'TCG'" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=TCG" name="TCG-alt" references="true" stamp="1186943543178" version="1.0"/>
+<refactoring comment="Rename Java project 'excelExport' to 'TCG'&#10;- Original element: 'excelExport'&#10;- Update references to refactored element" description="Rename Java project 'excelExport'" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=excelExport" name="TCG" references="true" stamp="1186943560829" version="1.0"/>
+</session>

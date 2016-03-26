@@ -1,0 +1,49 @@
+package org.strotmann.tcg;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.db4o.Db4o;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+
+public class MitgliedPersisterDB4O implements MitgliedPersister {
+
+	private ObjectContainer file;
+	
+	public void create(Mitglied mitglied) {
+		file = Db4o.openFile("Mitglieder.yap");
+		file.set(mitglied);
+		file.close();
+	}
+	
+	public void upd(Mitglied mitglied) {
+		file = Db4o.openFile("Mitglieder.yap");
+		Mitglied m = (Mitglied) file.ext().getByID(mitglied.getMitgliedId());
+		file.activate(m, 1);
+		file.set(mitglied);
+		file.close();
+	}
+	
+	public List <Mitglied> readMitglieder () {
+		List <Mitglied> mitgliederListe = new ArrayList <Mitglied>();
+		file = Db4o.openFile("Mitglieder.yap");
+		Mitglied proto = new Mitglied();
+		ObjectSet<Mitglied> result = file.get(proto);
+		while(result.hasNext()) {
+			Mitglied mitglied = result.next();
+			mitglied.setMitgliedId(file.ext().getID(mitglied));
+	        mitgliederListe.add(mitglied);
+	    }
+		file.close();
+		return mitgliederListe;
+	}
+	
+	public Mitglied readMitglied (long mId) {
+		file = Db4o.openFile("Mitglieder.yap");
+	    Mitglied m = (Mitglied) file.ext().getByID(mId);
+	    file.activate(m, 1);
+		file.close();
+		return m;
+	}
+}

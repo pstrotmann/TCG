@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!DOCTYPE faces-config PUBLIC
+ "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
+ "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+<faces-config>
+	<managed-bean>
+		<managed-bean-name>mgr</managed-bean-name>
+		<managed-bean-class>org.strotmann.tcg.MitgliedManager</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+		
+	<managed-bean>
+		<managed-bean-name>mitglied</managed-bean-name>
+		<managed-bean-class>org.strotmann.tcg.Mitglied</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>mSuch</managed-bean-name>
+		<managed-bean-class>org.strotmann.tcg.MitgliedSucher</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>auswahl</managed-bean-name>
+		<managed-bean-class>org.strotmann.util.Auswahl</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+		
+<navigation-rule>
+		<from-view-id>/pages/liste.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>Neu</from-outcome>
+			<to-view-id>/pages/erfassung.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Ändern</from-outcome>
+			<to-view-id>/pages/erfassung.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Uebernahme</from-outcome>
+			<to-view-id>/pages/liste.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Suchen</from-outcome>
+			<to-view-id>/pages/liste.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Beitraege</from-outcome>
+			<to-view-id>/pages/beitragsliste.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Adressen</from-outcome>
+			<to-view-id>/pages/adressliste.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Export</from-outcome>
+			<to-view-id>/pages/liste.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/pages/erfassung.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>Erfolg</from-outcome>
+			<to-view-id>/pages/liste.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Fehler</from-outcome>
+			<to-view-id>/pages/erfassung.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/pages/adressliste.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>Erfolg</from-outcome>
+			<to-view-id>/pages/liste.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/pages/beitragsliste.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>Erfolg</from-outcome>
+			<to-view-id>/pages/liste.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+  <converter>
+	<description>
+		increments date by one to overcome outputText Problem
+	</description>
+	<converter-id>datumConverter</converter-id>
+	<converter-class>
+		org.strotmann.util.DatumConverter
+	</converter-class>
+  </converter>
+  
+  <converter>
+	<description>
+		1 --> m, 2 --> w
+	</description>
+	<converter-id>geschlechtConverter</converter-id>
+	<converter-class>
+		org.strotmann.util.GeschlechtConverter
+	</converter-class>
+  </converter>
+  
+  <converter>
+	<description>
+		1 --> Lastschrift, 2 --> Überweisung
+	</description>
+	<converter-id>zahlungsartConverter</converter-id>
+	<converter-class>
+		org.strotmann.util.ZahlungsartConverter
+	</converter-class>
+  </converter>
+  
+  <converter>
+	<description>
+		1 --> EinzelBeitrag, 2 --> Ehepaar, 3 -->
+	</description>
+	<converter-id>beitragsklasseConverter</converter-id>
+	<converter-class>
+		org.strotmann.util.BeitragsklasseConverter
+	</converter-class>
+  </converter>
+  
+  <converter>
+	<description>
+		1 --> 240,00, 2 --> 410,00, 3 -->
+	</description>
+	<converter-id>beitragConverter</converter-id>
+	<converter-class>
+		org.strotmann.util.BeitragConverter
+	</converter-class>
+  </converter>
+  
+	
+</faces-config>

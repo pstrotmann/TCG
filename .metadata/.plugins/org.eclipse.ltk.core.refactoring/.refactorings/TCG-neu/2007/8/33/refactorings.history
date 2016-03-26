@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<session version="1.0">
+<refactoring comment="Rename resource '/TCG/WebRoot/WEB-INF/examples-config.xml' to 'examples-config.xxx'&#10;- Original element: 'examples-config.xml'" description="Rename resource 'examples-config.xml'" flags="7" id="org.eclipse.jdt.ui.rename.resource" input="WebRoot/WEB-INF/examples-config.xml" name="examples-config.xxx" stamp="1187343138903" version="1.0"/>
+<refactoring comment="Rename resource '/TCG/WebRoot/WEB-INF/web.xml' to 'web.xxx'&#10;- Original element: 'web.xml'" description="Rename resource 'web.xml'" flags="7" id="org.eclipse.jdt.ui.rename.resource" input="WebRoot/WEB-INF/web.xml" name="web.xxx" stamp="1187343153563" version="1.0"/>
+<refactoring comment="Rename resource '/TCG/WebRoot/pages/beitragsListe.jsp' to 'beitragsliste.jsp'&#10;- Original element: 'beitragsListe.jsp'" description="Rename resource 'beitragsListe.jsp'" flags="7" id="org.eclipse.jdt.ui.rename.resource" input="WebRoot/pages/beitragsListe.jsp" name="beitragsliste.jsp" stamp="1187426606613" version="1.0"/>
+</session>

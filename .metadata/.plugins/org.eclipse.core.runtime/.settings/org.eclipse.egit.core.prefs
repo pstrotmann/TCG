@@ -1,3 +1,4 @@
-GitRepositoriesView.GitDirectories=/home/peter/git/TCG/.git\:
-RepositorySearchDialogSearchPath=/home/peter/git
+GitRepositoriesView.GitDirectories=/home/peter/workspaces/tcg/.git\:
+RepositorySearchDialogDeepSearch=true
+RepositorySearchDialogSearchPath=/home/peter/workspaces/tcg
 eclipse.preferences.version=1

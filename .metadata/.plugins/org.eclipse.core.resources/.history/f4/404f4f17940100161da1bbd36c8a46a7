@@ -94,13 +94,13 @@ public class MitgliedManager
 	}
 	
 	public String UebernahmeAction() {
-		this.erfNachricht = "Übernahme der Daten erfolgreich";
+		this.erfNachricht = "Ãœbernahme der Daten erfolgreich";
 		new MitgliederImporter().importiere();
 		return "Uebernahme";
     }
 	
 	public String uebernahmeEmailAction() {
-		this.erfNachricht = "Übernahme der eMail-Adressen erfolgreich";
+		this.erfNachricht = "Ãœbernahme der eMail-Adressen erfolgreich";
 		new EmailImporter().importiere();
 		return "Uebernahme";
     }

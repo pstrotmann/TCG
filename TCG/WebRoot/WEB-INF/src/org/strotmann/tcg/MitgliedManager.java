@@ -317,10 +317,25 @@ public class MitgliedManager
         return "Erfolg";
 	}
 	
+	@SuppressWarnings("deprecation")
+	public String kiJuAction() {
+		Date tadat = new Date();
+		List <Mitglied> liste = mitgliedPersister.readMitglieder();
+		for (Mitglied mitglied : liste) {
+			int alter;
+			alter = tadat.getYear() - mitglied.getGeburtsdatum().getYear();
+			if (mitglied.getBeitragsklasse() == (short)5 && alter > 12 && alter < 19) {
+				mitglied.setBeitragsklasse((short)8);
+				mitgliedPersister.store(mitglied);
+			}
+		}
+		return "KijuUmst";
+	}
+	
 	public List<Mitglied> getMitgliederListe() {
 		
 		Date tadat = new Date();
-		
+				
 		if (this.mitgliederListe == null)
 			this.mitgliederListe = new ArrayList();
 		else

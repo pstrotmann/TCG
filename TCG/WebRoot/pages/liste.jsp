@@ -221,8 +221,11 @@
 			<h:outputText value="Adressliste"/>
 			<h:commandButton value="Adressen" action="#{mgr.adressenAction}" title="Anzeigen der Adressen der Briefempfänger" image="/images/tennismaenchen.jpg"/>
 		</h2>
-				
-    </h:form>
+		<h2 align="center">
+			<h:outputText value="KiJuUmstellung"/>
+			<h:commandButton value="KijuUmst" action="#{mgr.kiJuAction}" title="Umstellung unter 12 auf 12-18" image="/images/quick_edit.gif"/>
+		</h2>
+	</h:form>
 </f:view>
 
 </body>

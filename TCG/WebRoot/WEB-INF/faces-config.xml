@@ -87,7 +87,11 @@
 			<from-outcome>Export</from-outcome>
 			<to-view-id>/pages/liste.jsp</to-view-id>
 		</navigation-case>
-	</navigation-rule>
+		<navigation-case>
+			<from-outcome>KijuUmst</from-outcome>
+			<to-view-id>/pages/beitragsliste.jsp</to-view-id>
+		</navigation-case>
+		</navigation-rule>
 	
 	<navigation-rule>
 		<from-view-id>/pages/erfassung.jsp</from-view-id>
